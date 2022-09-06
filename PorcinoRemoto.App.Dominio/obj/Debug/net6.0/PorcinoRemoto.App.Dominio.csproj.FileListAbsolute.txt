@@ -1,0 +1,12 @@
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\bin\Debug\net6.0\PorcinoRemoto.App.Dominio.deps.json
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\bin\Debug\net6.0\PorcinoRemoto.App.Dominio.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\bin\Debug\net6.0\PorcinoRemoto.App.Dominio.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.csproj.AssemblyReference.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.AssemblyInfoInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.AssemblyInfo.cs
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\refint\PorcinoRemoto.App.Dominio.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\PorcinoRemoto.App.Dominio.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Dominio\obj\Debug\net6.0\ref\PorcinoRemoto.App.Dominio.dll
