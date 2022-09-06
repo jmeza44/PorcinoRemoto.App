@@ -1,0 +1,17 @@
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Persistencia.deps.json
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Persistencia.runtimeconfig.json
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Persistencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Persistencia.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Dominio.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\bin\Debug\net6.0\PorcinoRemoto.App.Dominio.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.csproj.AssemblyReference.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.AssemblyInfoInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.AssemblyInfo.cs
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.csproj.CopyComplete
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\refint\PorcinoRemoto.App.Persistencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\PorcinoRemoto.App.Persistencia.genruntimeconfig.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Persistencia\obj\Debug\net6.0\ref\PorcinoRemoto.App.Persistencia.dll

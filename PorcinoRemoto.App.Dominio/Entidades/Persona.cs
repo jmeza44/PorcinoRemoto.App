@@ -1,22 +1,14 @@
+using System.ComponentModel.DataAnnotations;
 namespace PorcinoRemoto.App.Dominio
 {
     public class Persona
     {
-        public string id { get; set; }
-        public string primerNombre { get; set; }
-        public string segundoNombre { get; set; }
-        public string primerApellido { get; set; }
-        public string segundoApellido { get; set; }
-        public Direccion direccion { get; set; }
-
-        public Persona(string id, string primerNombre, string segundoNombre, string primerApellido, string segundoApellido, Direccion direccion)
-        {
-            this.id = id;
-            this.primerNombre = primerNombre;
-            this.segundoNombre = segundoNombre;
-            this.primerApellido = primerApellido;
-            this.segundoApellido = segundoApellido;
-            this.direccion = direccion;
-        }
+        [Key]
+        public int PersonaID { get; set; }
+        public string PrimerNombre { get; set; }
+        public string SegundoNombre { get; set; }
+        public string PrimerApellido { get; set; }
+        public string SegundoApellido { get; set; }
+        public Direccion Direccion { get; set; }
     }
 }

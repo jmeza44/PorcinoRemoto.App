@@ -1,22 +1,17 @@
-using System.Runtime.CompilerServices;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PorcinoRemoto.App.Dominio
 {
     public class Direccion
     {
-        public string carrera { get; set; }
-        public string calle { get; set; }
-        public string numero { get; set; }
-        public string ciudad { get; set; }
-        public string departamento { get; set; }
-
-        public Direccion(string carrera, string calle, string numero, string ciudad, string departamento)
-        {
-            this.carrera = carrera;
-            this.calle = calle;
-            this.numero = numero;
-            this.ciudad = ciudad;
-            this.departamento = departamento;
-        }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int DireccionID { get; set; }
+        public string Carrera { get; set; }
+        public string Calle { get; set; }
+        public string Numero { get; set; }
+        public string Ciudad { get; set; }
+        public string Departamento { get; set; }
     }
 }
