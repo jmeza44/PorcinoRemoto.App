@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj": {}
+    "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj": {
+    "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj",
         "projectName": "HospitalEnCasa.App.Dominio",
-        "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj",
+        "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Dominio\\HospitalEnCasa.App.Dominio.csproj",
         "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Dominio\\obj\\",
+        "outputPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"

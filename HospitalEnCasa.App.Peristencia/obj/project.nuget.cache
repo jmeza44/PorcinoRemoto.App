@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dFZ8iJJGiXubypVt+RXTrs3GzFjHERN9lcRb+liWS3w+SsWv+h72p2Bt46Rv83+m0h9VNOepL4o7y6yn5sMKjA==",
+  "dgSpecHash": "Cs0n/JQCg/pUhjOmBdup/8cO7PI2uXXMzAKyOSAWB+bnlERUMgEv+AZa8AdgwQlZD+5CXzpqRUTRFO8E6QIiuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
+  "projectFilePath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

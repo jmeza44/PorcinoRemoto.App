@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5NsqpgfdbEbsbdrwD1Xl3bXc9qVBqguAILG1tSJM/WEZe+PNS96OxSIwGeNW+aVnIRa8oJhKvBERYOYZW6Tb+w==",
+  "dgSpecHash": "wLqDvtgFyi4pnL69V8bs2Ypf7r5I5XWbclxaFRu8ROj++Eg1Abc6YcJhyUOAloaXRJI6EFc9UEa5Md6pwXl5oQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Servicios\\HospitalEnCasa.App.Servicios.csproj",
+  "projectFilePath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Servicios\\HospitalEnCasa.App.Servicios.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\David\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\David\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

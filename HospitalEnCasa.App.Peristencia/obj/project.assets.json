@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
+      "projectUniqueName": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
       "projectName": "HospitalEnCasa.App.Peristencia",
-      "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
+      "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Peristencia\\HospitalEnCasa.App.Peristencia.csproj",
       "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\David\\Documents\\DotNetProyects\\HospitalizacionEnCasa\\HospitalEnCasa.App\\HospitalEnCasa.App.Peristencia\\obj\\",
+      "outputPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\HospitalEnCasa.App.Peristencia\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"

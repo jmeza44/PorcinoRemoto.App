@@ -10,3 +10,15 @@ C:\Users\David\Documents\DotNetProyects\HospitalizacionEnCasa\HospitalEnCasa.App
 C:\Users\David\Documents\DotNetProyects\HospitalizacionEnCasa\HospitalEnCasa.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\refint\HospitalEnCasa.App.Peristencia.dll
 C:\Users\David\Documents\DotNetProyects\HospitalizacionEnCasa\HospitalEnCasa.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.pdb
 C:\Users\David\Documents\DotNetProyects\HospitalizacionEnCasa\HospitalEnCasa.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\ref\HospitalEnCasa.App.Peristencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\bin\Debug\net6.0\HospitalEnCasa.App.Peristencia.deps.json
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\bin\Debug\net6.0\HospitalEnCasa.App.Peristencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\bin\Debug\net6.0\HospitalEnCasa.App.Peristencia.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.csproj.AssemblyReference.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.AssemblyInfoInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.AssemblyInfo.cs
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.csproj.CoreCompileInputs.cache
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\refint\HospitalEnCasa.App.Peristencia.dll
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\HospitalEnCasa.App.Peristencia.pdb
+C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\HospitalEnCasa.App.Peristencia\obj\Debug\net6.0\ref\HospitalEnCasa.App.Peristencia.dll
