@@ -1,0 +1,10 @@
+namespace HospitalEnCasa.App.Dominio
+{
+    public class Paciente:Persona
+    {
+        public DateTime FechaNacimiento { get; set; }
+        public enum Genero {
+            masculino, femenino, otro, noEspecificado
+        }
+    }
+}
