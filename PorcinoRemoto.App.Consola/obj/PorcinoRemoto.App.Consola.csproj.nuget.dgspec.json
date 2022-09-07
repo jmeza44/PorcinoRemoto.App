@@ -26,6 +26,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Dominio\\PorcinoRemoto.App.Dominio.csproj": {
+                "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Dominio\\PorcinoRemoto.App.Dominio.csproj"
+              },
               "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Persistencia\\PorcinoRemoto.App.Persistencia.csproj": {
                 "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Persistencia\\PorcinoRemoto.App.Persistencia.csproj"
               }
