@@ -8,6 +8,5 @@ namespace PorcinoRemoto.App.Persistencia
         Persona AddPersona(Persona persona);
         Persona UpdatePersona(Persona persona);
         void DeletePersona(int idPersona);
-        
     }
 }

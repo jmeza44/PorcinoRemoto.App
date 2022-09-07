@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.Generic;
 using System.Security.Permissions;
 using System.Linq;
+using System;
 using PorcinoRemoto.App.Dominio;
 
 namespace PorcinoRemoto.App.Persistencia
@@ -21,7 +22,16 @@ namespace PorcinoRemoto.App.Persistencia
 
         Persona IRepositorioPersona.GetPersona(int idPersona)
         {
-            return _appContext.Personas.FirstOrDefault(p => p.PersonaID == idPersona);
+            Console.WriteLine("Entrada" + idPersona);
+            using (var context = new AppContext())
+            {
+            var persona = context.Personas
+                .Where(w => w.PersonaID == idPersona)
+                .FirstOrDefault();
+            Console.WriteLine("Paso");
+        
+            return persona;
+            }
         }
 
         Persona IRepositorioPersona.AddPersona(Persona persona)

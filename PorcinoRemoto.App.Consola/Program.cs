@@ -9,9 +9,28 @@ namespace PorcinoRemoto.App.Consola
         private static IRepositorioPersona _repoPersona = new RepositorioPersona(new Persistencia.AppContext());
         public static void Main(string[] args)
         {
-            Persona personaEncontrada = BuscarPersona(1);
+            Persona personaCreando = new Persona
+            {
+                PersonaID = 4,
+                PrimerNombre = "Lucho",
+                SegundoNombre = "",
+                PrimerApellido = "Fernandez",
+                SegundoApellido = "",
+                Direccion = new Direccion
+                {
+                    Carrera = "",
+                    Calle = "",
+                    Numero = "",
+                    Ciudad = "",
+                    Departamento = "",
+                }
+            };
+
+            _repoPersona.UpdatePersona(personaCreando);
+
+            /* Persona personaEncontrada = BuscarPersona(1);
             if (personaEncontrada != null)
-                Console.WriteLine("Persona encontrada: " + personaEncontrada.PrimerNombre);
+                Console.WriteLine("Persona encontrada: " + personaEncontrada.PrimerNombre); */
         }
 
         private static void AddPersona(Persona persona)
