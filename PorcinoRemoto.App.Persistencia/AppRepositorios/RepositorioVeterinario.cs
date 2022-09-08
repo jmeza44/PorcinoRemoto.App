@@ -16,22 +16,22 @@ namespace PorcinoRemoto.App.Persistencia
 
         IEnumerable<Veterinario> IRepositorioVeterinario.GetAllVeterinario()
         {
-            return _appContext.Veterinario;
+            return _appContext.Veterinarios;
         }
 
-        Persona IRepositorioVeterinario.GetVeterinario(int idVeterinario)
+        Veterinario IRepositorioVeterinario.GetVeterinario(int idVeterinario)
         {
             return _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == idVeterinario);
         }
 
-        Persona IRepositorioVeterinario.AddVeterinario(Veterinario veterinario)
+        Veterinario IRepositorioVeterinario.AddVeterinario(Veterinario veterinario)
         {
-            var VeterinarioAdicionado = _appContext.Veterinarios.Add(Veterinario);
+            var VeterinarioAdicionado = _appContext.Veterinarios.Add(veterinario);
             _appContext.SaveChanges();
             return VeterinarioAdicionado.Entity;
         }
 
-        Persona IRepositorioVeterinario.UpdateVeterinario(Veterinario veterinario)
+        Veterinario IRepositorioVeterinario.UpdateVeterinario(Veterinario veterinario)
         {
             var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == veterinario.PersonaID);
             if (veterinarioEncontrado != null)
@@ -50,10 +50,10 @@ namespace PorcinoRemoto.App.Persistencia
 
         void IRepositorioVeterinario.DeleteVeterinario(int idVeterinario)
         {
-            var veterinarioEncontrado = _appContext.Personas.FirstOrDefault(p => p.PersonaID == idVeterinario);
-            if (veterinarioEncontrada == null)
+            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == idVeterinario);
+            if (veterinarioEncontrado == null)
                 return;
-            _appContext.Veterinarios.Remove(veterinarioEncontrada);
+            _appContext.Veterinarios.Remove(veterinarioEncontrado);
             _appContext.SaveChanges();
 
         }

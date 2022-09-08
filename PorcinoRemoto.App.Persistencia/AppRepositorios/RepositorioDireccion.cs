@@ -26,14 +26,14 @@ namespace PorcinoRemoto.App.Persistencia
 
         Direccion IRepositorioDireccion.AddDireccion(Direccion direccion)
         {
-            var direccionAdicionada = _appContext.Direcciones.Add(Direccion);
+            var direccionAdicionada = _appContext.Direcciones.Add(direccion);
             _appContext.SaveChanges();
             return direccionAdicionada.Entity;
         }
 
         Direccion IRepositorioDireccion.UpdateDireccion(Direccion direccion)
         {
-            var DireccionEncontrada = _appContext.Direcciones.FirstOrDefault(p => p.DireccionID == direccion.DireccionID);
+            var direccionEncontrada = _appContext.Direcciones.FirstOrDefault(p => p.DireccionID == direccion.DireccionID);
             if (direccionEncontrada != null)
             {
                 direccionEncontrada.Carrera = direccion.Carrera;
