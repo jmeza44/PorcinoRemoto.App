@@ -1,10 +1,29 @@
 ﻿@page
 @model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@{ ViewData["Title"] = "Home page"; }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row pe-lg-0 pt-lg-5 align-items-center rounded-3 border p-4 pb-0 shadow-lg">
+        <div class="col-lg-7 p-lg-5 pt-lg-3 p-3">
+            <h1 class="display-4 fw-bold lh-1">
+                Plataforma para el cuidado de porcinos
+            </h1>
+            <p class="lead">
+                Gestiona la información de porcinos, propietarios, veterinarios, e historioas clinicas incluyendo las
+                visitas. Todo en una misma plataforma.
+            </p>
+            <div class="d-grid d-md-flex justify-content-md-start mb-lg-3 mb-4 gap-2">
+                <a class="text-light text-decoration-none btn btn-primary btn-lg me-md-2 fw-bold px-4" asp-area=""
+                    asp-page="/Custom/Forms/Registros">Registros</a>
+                <a class="btn btn-outline-secondary btn-lg px-4" asp-area="" asp-page="/Index">
+                    Consultas
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 overflow-hidden p-0 shadow-lg">
+            <img class="rounded-lg-3"
+                src="https://images.unsplash.com/photo-1567201080580-bfcc97dae346?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80"
+                alt="cerdo mirando a la camara" width="720" />
+        </div>
+    </div>
 </div>
