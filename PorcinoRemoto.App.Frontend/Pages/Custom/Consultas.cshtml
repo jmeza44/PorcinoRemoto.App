@@ -1,0 +1,34 @@
+@page
+@model ConsultasModel
+@{ ViewData["Title"] = "Consultas"; }
+
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+                <th scope="col">Especie</th>
+                <th scope="col">Raza</th>
+                <th scope="col">Propietario</th>
+                <th scope="col">Historia</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var porcino in ConsultasModel.porcinos)
+            {
+            <tr>
+                <th scope="row">@porcino.PorcinoID</th>
+                <td>@porcino.Nombre</td>
+                <td>@porcino.Color</td>
+                <td>@porcino.Especie</td>
+                <td>@porcino.Raza</td>
+                <td>@porcino.Propietario</td>
+                <td>@porcino.Historia</td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

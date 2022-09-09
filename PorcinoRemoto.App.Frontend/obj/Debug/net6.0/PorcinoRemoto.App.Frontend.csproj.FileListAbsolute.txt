@@ -24,3 +24,4 @@ C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoR
 C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Frontend\obj\Debug\net6.0\PorcinoRemoto.App.Frontend.pdb
 C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Frontend\obj\Debug\net6.0\PorcinoRemoto.App.Frontend.genruntimeconfig.cache
 C:\Users\David\Documents\DotNetProyects\PorcinoRemoto\PorcinoRemoto.App\PorcinoRemoto.App.Frontend\obj\Debug\net6.0\ref\PorcinoRemoto.App.Frontend.dll
+C:\Users\A45V\Desktop\PorcinoRemoto.App\PorcinoRemoto.App.Frontend\obj\Debug\net6.0\PorcinoRemoto.App.Frontend.pdb
