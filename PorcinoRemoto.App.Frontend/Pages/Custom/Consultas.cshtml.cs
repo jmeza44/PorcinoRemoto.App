@@ -18,9 +18,9 @@ public class ConsultasModel : PageModel
 {
     private readonly ILogger<ConsultasModel> _logger;
     public List<Porcino> porcinos = new List<Porcino>() {
-                new Porcino(){ PorcinoID = 1, Nombre="Bill", Especie="", Raza="", Color="", Propietario="Juan Carlos", Historia="A3654G2356"},
-                new Porcino(){ PorcinoID = 2, Nombre="Steve", Especie="", Raza="", Color="", Propietario="Juan Carlos", Historia="A3654G2356"},
-                new Porcino(){ PorcinoID = 3, Nombre="Ram", Especie="", Raza="", Color="", Propietario="Juan Carlos", Historia="A3654G2356"}};
+                new Porcino(){ PorcinoID = 1, Nombre="Bill", Especie="", Raza="Razorback", Color="Blanco y Negro", Propietario="Juan Carlos", Historia="A3654G2356"},
+                new Porcino(){ PorcinoID = 2, Nombre="Otto", Especie="", Raza="Yorkshire", Color="Marron", Propietario="Jose Luis", Historia="A3654G2356"},
+                new Porcino(){ PorcinoID = 3, Nombre="Ram", Especie="", Raza="Landrace", Color="Negro", Propietario="Fernando", Historia="A3654G2356"}};
 
     public ConsultasModel(ILogger<ConsultasModel> logger)
     {
