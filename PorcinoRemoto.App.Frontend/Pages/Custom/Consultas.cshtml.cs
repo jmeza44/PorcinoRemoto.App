@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,10 +19,13 @@ public class Porcino
 public class ConsultasModel : PageModel
 {
     private readonly ILogger<ConsultasModel> _logger;
-    public List<Porcino> porcinos = new List<Porcino>() {
-                new Porcino(){ PorcinoID = 1, Nombre="Bill", Especie="", Raza="Razorback", Color="Blanco y Negro", Propietario="Juan Carlos", Historia="A3654G2356"},
-                new Porcino(){ PorcinoID = 2, Nombre="Otto", Especie="", Raza="Yorkshire", Color="Marron", Propietario="Jose Luis", Historia="A3654G2356"},
-                new Porcino(){ PorcinoID = 3, Nombre="Ram", Especie="", Raza="Landrace", Color="Negro", Propietario="Fernando", Historia="A3654G2356"}};
+    public string Nombre = "";
+    public List<Porcino> porcinos = new List<Porcino>()
+    {
+        new Porcino(){ PorcinoID = 1, Nombre="Bill", Especie="", Raza="Razorback", Color="Blanco y Negro", Propietario="Juan Carlos", Historia="A3654G2356"},
+        new Porcino(){ PorcinoID = 2, Nombre="Otto", Especie="", Raza="Yorkshire", Color="Marron", Propietario="Jose Luis", Historia="A3654G2356"},
+        new Porcino(){ PorcinoID = 3, Nombre="Ram", Especie="", Raza="Landrace", Color="Negro", Propietario="Fernando", Historia="A3654G2356"}
+    };
 
     public ConsultasModel(ILogger<ConsultasModel> logger)
     {
@@ -31,8 +36,20 @@ public class ConsultasModel : PageModel
     {
 
     }
+
+    public List<Porcino> BuscarPorcino()
+    {
+        List<Porcino> filtrado = new List<Porcino>();
+        foreach (var porcino in porcinos)
+        {
+            if (porcino.Nombre == Nombre)
+            {
+                filtrado.Add(porcino);
+            }
+        }
+        return filtrado;
+    }
 }
 
 
 
-                

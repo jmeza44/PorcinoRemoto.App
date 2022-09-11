@@ -2,8 +2,19 @@
 @model ConsultasModel
 @{ ViewData["Title"] = "Consultas"; }
 
-<div>
-    <table class="table">
+<div class="row">
+    <div class="col-12">
+        <h3>Porcinos</h3>
+    </div>
+</div>
+<div class="row">
+    <div class="col-2">
+        <input type="text" class="form-control" name="buscadorPorcino" id="busquedaTxt" placeholder="Nombre">
+    </div>
+</div>
+
+<div class="row">
+    <table class="col-12 table">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -15,20 +26,37 @@
                 <th scope="col">Historia</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-striped">
             @foreach (var porcino in Model.porcinos)
             {
             <tr>
                 <th scope="row">@porcino.PorcinoID</th>
-                <td>@porcino.Nombre</td>
-                <td>@porcino.Color</td>
+                <td><a href="#">@porcino.Nombre</a></td>
+                <td class="text-truncate">@porcino.Color</td>
                 <td>@porcino.Especie</td>
                 <td>@porcino.Raza</td>
                 <td>@porcino.Propietario</td>
                 <td>@porcino.Historia</td>
             </tr>
             }
-
         </tbody>
     </table>
 </div>
+
+@section Scripts{
+<script>
+    $(function () {
+        var busquedaTxt = document.getElementById('busquedaTxt')
+        busquedaTxt.addEventListener('keyup', function (e) {
+            // e.preventDefault()
+            // https://www.youtube.com/watch?v=8LXCxHzEIhc
+            // https://github.com/techwithpat/trackingg/blob/master/trackingg/Pages/Issues/Detail.cshtml
+            var val = busquedaTxt.value;
+            console.log(val);
+            $.get(`?nombre${val}`, function () {
+                alert(`Issue ${val} has been resolved`)
+            })
+        })
+    });
+</script>
+}

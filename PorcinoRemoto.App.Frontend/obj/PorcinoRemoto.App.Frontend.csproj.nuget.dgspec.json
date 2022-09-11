@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\A45V\\Desktop\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj": {}
+    "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\A45V\\Desktop\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj": {
+    "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\A45V\\Desktop\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj",
         "projectName": "PorcinoRemoto.App.Frontend",
-        "projectPath": "C:\\Users\\A45V\\Desktop\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj",
-        "packagesPath": "C:\\Users\\A45V\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\A45V\\Desktop\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\obj\\",
+        "projectPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\PorcinoRemoto.App.Frontend.csproj",
+        "packagesPath": "C:\\Users\\David\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\David\\Documents\\DotNetProyects\\PorcinoRemoto\\PorcinoRemoto.App\\PorcinoRemoto.App.Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\A45V\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\David\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
