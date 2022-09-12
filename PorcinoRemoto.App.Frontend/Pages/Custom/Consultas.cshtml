@@ -1,0 +1,52 @@
+@page
+@model ConsultasModel
+@{ ViewData["Title"] = "Consultas"; }
+
+<div class="row">
+    <div class="col-12">
+        <h3>Porcinos</h3>
+    </div>
+</div>
+
+<div class="row">
+    <form action="/Custom/Consultas/" method="get" class="col-12">
+        <div class="row form-group">
+            <div class="col-3">
+                <input type="text" class="form-control" name="nombre" id="busquedaTxt" placeholder="Nombre">
+            </div>
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Filtrar">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <table class="col-12 table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Color</th>
+                <th scope="col">Especie</th>
+                <th scope="col">Raza</th>
+                <th scope="col">Propietario</th>
+                <th scope="col">Historia</th>
+            </tr>
+        </thead>
+        <tbody class="table-striped">
+            @foreach (var porcino in Model.porcinos)
+            {
+            <tr>
+                <th scope="row">@porcino.PorcinoID</th>
+                <td><a href="#">@porcino.Nombre</a></td>
+                <td class="text-truncate">@porcino.Color</td>
+                <td>@porcino.Especie</td>
+                <td>@porcino.Raza</td>
+                <td>@porcino.Propietario</td>
+                <td>@porcino.Historia</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

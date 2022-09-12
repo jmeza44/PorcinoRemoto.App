@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "PorcinoRemoto.App.Frontend/1.0.0": {
+        "runtime": {
+          "PorcinoRemoto.App.Frontend.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PorcinoRemoto.App.Frontend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
