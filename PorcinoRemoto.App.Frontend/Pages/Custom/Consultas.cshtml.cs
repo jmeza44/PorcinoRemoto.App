@@ -19,7 +19,6 @@ public class Porcino
 public class ConsultasModel : PageModel
 {
     private readonly ILogger<ConsultasModel> _logger;
-    public string Nombre = "";
     public List<Porcino> porcinos = new List<Porcino>()
     {
         new Porcino(){ PorcinoID = 1, Nombre="Bill", Especie="", Raza="Razorback", Color="Blanco y Negro", Propietario="Juan Carlos", Historia="A3654G2356"},
@@ -32,17 +31,22 @@ public class ConsultasModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public IActionResult OnGet(string nombre)
     {
-
+        if (nombre == null) {
+            return Page();
+        } else {
+            porcinos = BuscarPorcino(nombre);
+            return Page();
+        }
     }
 
-    public List<Porcino> BuscarPorcino()
+    public List<Porcino> BuscarPorcino(string nombre)
     {
         List<Porcino> filtrado = new List<Porcino>();
         foreach (var porcino in porcinos)
         {
-            if (porcino.Nombre == Nombre)
+            if (porcino.Nombre == nombre)
             {
                 filtrado.Add(porcino);
             }

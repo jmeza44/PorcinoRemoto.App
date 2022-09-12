@@ -7,10 +7,18 @@
         <h3>Porcinos</h3>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-2">
-        <input type="text" class="form-control" name="buscadorPorcino" id="busquedaTxt" placeholder="Nombre">
-    </div>
+    <form action="/Custom/Consultas/" method="get" class="col-12">
+        <div class="row form-group">
+            <div class="col-3">
+                <input type="text" class="form-control" name="nombre" id="busquedaTxt" placeholder="Nombre">
+            </div>
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Filtrar">
+            </div>
+        </div>
+    </form>
 </div>
 
 <div class="row">
@@ -42,21 +50,3 @@
         </tbody>
     </table>
 </div>
-
-@section Scripts{
-<script>
-    $(function () {
-        var busquedaTxt = document.getElementById('busquedaTxt')
-        busquedaTxt.addEventListener('keyup', function (e) {
-            // e.preventDefault()
-            // https://www.youtube.com/watch?v=8LXCxHzEIhc
-            // https://github.com/techwithpat/trackingg/blob/master/trackingg/Pages/Issues/Detail.cshtml
-            var val = busquedaTxt.value;
-            console.log(val);
-            $.get(`?nombre${val}`, function () {
-                alert(`Issue ${val} has been resolved`)
-            })
-        })
-    });
-</script>
-}
