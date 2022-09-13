@@ -1,38 +1,62 @@
 ﻿using PorcinoRemoto.App.Dominio;
 using PorcinoRemoto.App.Persistencia;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 namespace PorcinoRemoto.App.Consola
 {
     public class Program
     {
         private static IRepositorioPersona _repoPersona = new RepositorioPersona(new Persistencia.AppContext());
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
-            // Persona personaCreando = new Persona
-            // {
-            //     PersonaID = "100297582144",
-            //     PrimerNombre = "Lucho",
-            //     SegundoNombre = "",
-            //     PrimerApellido = "Fernandez",
-            //     SegundoApellido = "",
-            //     Direccion = new Direccion
-            //     {
-            //         Carrera = "12",
-            //         Calle = "64",
-            //         Numero = "3",
-            //         Ciudad = "null",
-            //         Departamento = "null",
-            //     }
-            // };
+            Persona personaCreando = new Persona
+            {
+                PersonaID = "1003826586",
+                PrimerNombre = "Pinel",
+                SegundoNombre = "Bill",
+                PrimerApellido = "Orslok",
+                SegundoApellido = "Luyan",
+                Direccion = new Direccion
+                {
+                    Carrera = "54B",
+                    Calle = "15",
+                    Numero = "6",
+                    Ciudad = "Barranquilla",
+                    Departamento = "Atlantico",
+                }
+            };
 
-            var personaEncontrada = await _repoPersona.GetPersona("100297582144");
+            // Uso de la adición a la base de datos
+            // AddPersona(personaCreando);
+
+            // Uso de la búsqueda completa en la base de datos
+            List<Persona> personas = BuscarPersonas();
+            if (personas != null)
+            {
+                if (personas.Count() > 0)
+                {
+                    int i = 1;
+                    foreach (var persona in personas)
+                    {
+                        Console.WriteLine(i + ". " + persona.PersonaID);
+                        i++;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Empty");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error");
+            }
+
+            // Uso de la búsqueda individual
+            Persona personaEncontrada = _repoPersona.GetPersona("1003826586");
             if (personaEncontrada != null)
             {
                 Console.WriteLine("Persona encontrada!");
-                Console.WriteLine(personaEncontrada);
+                Console.WriteLine("ID: " + personaEncontrada.PersonaID);
             }
             else
             {
@@ -47,14 +71,13 @@ namespace PorcinoRemoto.App.Consola
             Console.WriteLine("Persona agregada!");
         }
 
-        private static async Task<Persona> BuscarPersona(string idPersona)
+        private static Persona BuscarPersona(string idPersona)
         {
             Console.WriteLine("Buscando una persona!");
-            var persona = await _repoPersona.GetPersona(idPersona);
-            return persona;
+            return _repoPersona.GetPersona(idPersona);
         }
 
-        private static IEnumerable<Persona> BuscarPersonas()
+        private static List<Persona> BuscarPersonas()
         {
             Console.WriteLine("Buscando todas las personas!");
             return _repoPersona.GetAllPersonas();

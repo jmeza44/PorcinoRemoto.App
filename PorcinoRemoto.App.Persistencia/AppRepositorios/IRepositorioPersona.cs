@@ -5,7 +5,7 @@ namespace PorcinoRemoto.App.Persistencia
     public interface IRepositorioPersona
     {
         List<Persona> GetAllPersonas();
-        Task<Persona> GetPersona(string idPersona);
+        Persona GetPersona(string idPersona);
         Persona AddPersona(Persona persona);
         Persona UpdatePersona(Persona persona);
         void DeletePersona(string idPersona);

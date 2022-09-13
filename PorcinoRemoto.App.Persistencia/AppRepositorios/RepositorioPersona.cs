@@ -17,9 +17,9 @@ namespace PorcinoRemoto.App.Persistencia
             return _appContext.Personas.ToList();
         }
 
-        async Task<Persona> IRepositorioPersona.GetPersona(string idPersona)
+        Persona IRepositorioPersona.GetPersona(string idPersona)
         {
-            return await _appContext.Personas.SingleOrDefaultAsync(p => p.PersonaID == idPersona);
+            return _appContext.Personas.SingleOrDefault(p => p.PersonaID == idPersona);
         }
 
         Persona IRepositorioPersona.AddPersona(Persona persona)
