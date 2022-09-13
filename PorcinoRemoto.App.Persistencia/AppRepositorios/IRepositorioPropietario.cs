@@ -4,10 +4,10 @@ namespace PorcinoRemoto.App.Persistencia
     public interface IRepositorioPropietario
     {
         IEnumerable<Propietario> GetAllPropietario();
-        Propietario GetPropietario(int idPropietario);
+        Propietario GetPropietario(string idPersona);
         Propietario AddPropietario(Propietario propietario);
         Propietario UpdatePropietario(Propietario propietario );
-        void DeletePropietario(int idPropietario);
+        void DeletePropietario(string idPersona);
         
     }
 }

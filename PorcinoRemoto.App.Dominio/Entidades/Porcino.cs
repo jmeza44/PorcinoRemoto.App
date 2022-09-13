@@ -13,5 +13,6 @@ namespace PorcinoRemoto.App.Dominio
         public string Especie { get; set; }
         public string Raza { get; set; }
         public Propietario Propietario { get; set; }
+        public HistoriaClinica HistoriaClinica { get; set; }
     }
 }

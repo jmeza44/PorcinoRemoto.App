@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
-using System.Security.Permissions;
 using System.Linq;
 using PorcinoRemoto.App.Dominio;
 
@@ -19,9 +17,9 @@ namespace PorcinoRemoto.App.Persistencia
             return _appContext.Veterinarios;
         }
 
-        Veterinario IRepositorioVeterinario.GetVeterinario(int idVeterinario)
+        Veterinario IRepositorioVeterinario.GetVeterinario(string idPersona)
         {
-            return _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == idVeterinario);
+            return _appContext.Veterinarios.FirstOrDefault(p => p.Persona.PersonaID == idPersona);
         }
 
         Veterinario IRepositorioVeterinario.AddVeterinario(Veterinario veterinario)
@@ -33,24 +31,24 @@ namespace PorcinoRemoto.App.Persistencia
 
         Veterinario IRepositorioVeterinario.UpdateVeterinario(Veterinario veterinario)
         {
-            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == veterinario.PersonaID);
+            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.Persona.PersonaID == veterinario.Persona.PersonaID);
             if (veterinarioEncontrado != null)
             {
-                veterinarioEncontrado.PrimerNombre = veterinario.PrimerNombre;
-                veterinarioEncontrado.SegundoNombre = veterinario.SegundoNombre;
-                veterinarioEncontrado.PrimerApellido = veterinario.PrimerApellido;
-                veterinarioEncontrado.SegundoApellido = veterinario.SegundoApellido;
-                veterinarioEncontrado.Direccion = veterinario.Direccion;
-                veterinarioEncontrado.TarjetaProfesional=veterinario.TarjetaProfesional;
+                veterinarioEncontrado.Persona.PrimerNombre = veterinario.Persona.PrimerNombre;
+                veterinarioEncontrado.Persona.SegundoNombre = veterinario.Persona.SegundoNombre;
+                veterinarioEncontrado.Persona.PrimerApellido = veterinario.Persona.PrimerApellido;
+                veterinarioEncontrado.Persona.SegundoApellido = veterinario.Persona.SegundoApellido;
+                veterinarioEncontrado.Persona.Direccion = veterinario.Persona.Direccion;
+                veterinarioEncontrado.TarjetaProfesional = veterinario.TarjetaProfesional;
 
                 _appContext.SaveChanges();
             }
             return veterinarioEncontrado;
         }
 
-        void IRepositorioVeterinario.DeleteVeterinario(int idVeterinario)
+        void IRepositorioVeterinario.DeleteVeterinario(string idPersona)
         {
-            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.PersonaID == idVeterinario);
+            var veterinarioEncontrado = _appContext.Veterinarios.FirstOrDefault(p => p.Persona.PersonaID == idPersona);
             if (veterinarioEncontrado == null)
                 return;
             _appContext.Veterinarios.Remove(veterinarioEncontrado);

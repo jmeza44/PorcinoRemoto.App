@@ -68,17 +68,11 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Persona", b =>
                 {
-                    b.Property<int>("PersonaID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
+                    b.Property<string>("PersonaID")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("DireccionID")
                         .HasColumnType("int");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PrimerApellido")
                         .IsRequired()
@@ -101,8 +95,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     b.HasIndex("DireccionID");
 
                     b.ToTable("Personas");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Persona");
                 });
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Porcino", b =>
@@ -120,12 +112,15 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("HistoriaClinicaHistoriaID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PropietarioPersonaID")
-                        .HasColumnType("int");
+                    b.Property<string>("PropietarioEmail")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Raza")
                         .IsRequired()
@@ -133,9 +128,41 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
                     b.HasKey("PorcinoID");
 
-                    b.HasIndex("PropietarioPersonaID");
+                    b.HasIndex("HistoriaClinicaHistoriaID");
+
+                    b.HasIndex("PropietarioEmail");
 
                     b.ToTable("Porcinos");
+                });
+
+            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Propietario", b =>
+                {
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PersonaID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Email");
+
+                    b.HasIndex("PersonaID");
+
+                    b.ToTable("Propietarios");
+                });
+
+            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Veterinario", b =>
+                {
+                    b.Property<string>("TarjetaProfesional")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PersonaID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("TarjetaProfesional");
+
+                    b.HasIndex("PersonaID");
+
+                    b.ToTable("Veterinarios");
                 });
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Visita", b =>
@@ -174,8 +201,8 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     b.Property<double>("Temperatura")
                         .HasColumnType("float");
 
-                    b.Property<int?>("VeterinarioPersonaID")
-                        .HasColumnType("int");
+                    b.Property<string>("VeterinarioTarjetaProfesional")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VisitaID");
 
@@ -183,31 +210,9 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
                     b.HasIndex("PorcinoID");
 
-                    b.HasIndex("VeterinarioPersonaID");
+                    b.HasIndex("VeterinarioTarjetaProfesional");
 
                     b.ToTable("Visitas");
-                });
-
-            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Propietario", b =>
-                {
-                    b.HasBaseType("PorcinoRemoto.App.Dominio.Persona");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("Propietario");
-                });
-
-            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Veterinario", b =>
-                {
-                    b.HasBaseType("PorcinoRemoto.App.Dominio.Persona");
-
-                    b.Property<string>("TarjetaProfesional")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("Veterinario");
                 });
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Persona", b =>
@@ -221,11 +226,35 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Porcino", b =>
                 {
+                    b.HasOne("PorcinoRemoto.App.Dominio.HistoriaClinica", "HistoriaClinica")
+                        .WithMany()
+                        .HasForeignKey("HistoriaClinicaHistoriaID");
+
                     b.HasOne("PorcinoRemoto.App.Dominio.Propietario", "Propietario")
                         .WithMany()
-                        .HasForeignKey("PropietarioPersonaID");
+                        .HasForeignKey("PropietarioEmail");
+
+                    b.Navigation("HistoriaClinica");
 
                     b.Navigation("Propietario");
+                });
+
+            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Propietario", b =>
+                {
+                    b.HasOne("PorcinoRemoto.App.Dominio.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaID");
+
+                    b.Navigation("Persona");
+                });
+
+            modelBuilder.Entity("PorcinoRemoto.App.Dominio.Veterinario", b =>
+                {
+                    b.HasOne("PorcinoRemoto.App.Dominio.Persona", "Persona")
+                        .WithMany()
+                        .HasForeignKey("PersonaID");
+
+                    b.Navigation("Persona");
                 });
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Visita", b =>
@@ -240,7 +269,7 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
                     b.HasOne("PorcinoRemoto.App.Dominio.Veterinario", "Veterinario")
                         .WithMany()
-                        .HasForeignKey("VeterinarioPersonaID");
+                        .HasForeignKey("VeterinarioTarjetaProfesional");
 
                     b.Navigation("HistoriaClinica");
 

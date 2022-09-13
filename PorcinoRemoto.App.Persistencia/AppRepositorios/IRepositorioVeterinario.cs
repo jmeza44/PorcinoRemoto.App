@@ -4,10 +4,10 @@ namespace PorcinoRemoto.App.Persistencia
     public interface IRepositorioVeterinario
     {
         IEnumerable<Veterinario> GetAllVeterinario();
-        Veterinario GetVeterinario(int idVeterinario);
+        Veterinario GetVeterinario(string idPersona);
         Veterinario AddVeterinario(Veterinario veterinario);
         Veterinario UpdateVeterinario(Veterinario veterinario );
-        void DeleteVeterinario(int idVeterinario);
+        void DeleteVeterinario(string idPersona);
         
     }
 }

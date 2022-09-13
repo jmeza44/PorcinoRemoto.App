@@ -1,52 +1,53 @@
 @page
 @model ConsultasModel
 @{ ViewData["Title"] = "Consultas"; }
-
-<div class="row">
-    <div class="col-12">
-        <h3>Porcinos</h3>
-    </div>
-</div>
-
-<div class="row">
-    <form action="/Custom/Consultas/" method="get" class="col-12">
-        <div class="row form-group">
-            <div class="col-3">
-                <input type="text" class="form-control" name="nombre" id="busquedaTxt" placeholder="Nombre">
-            </div>
-            <div class="col-2">
-                <input type="submit" class="btn btn-primary" value="Filtrar">
-            </div>
+<div class="container-lg m-3 py-3 shadow-lg rounded-3 border">
+    <div class="row">
+        <div class="col-12">
+            <h3>Porcinos registrados</h3>
         </div>
-    </form>
-</div>
+    </div>
 
-<div class="row">
-    <table class="col-12 table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Color</th>
-                <th scope="col">Especie</th>
-                <th scope="col">Raza</th>
-                <th scope="col">Propietario</th>
-                <th scope="col">Historia</th>
-            </tr>
-        </thead>
-        <tbody class="table-striped">
-            @foreach (var porcino in Model.porcinos)
-            {
-            <tr>
-                <th scope="row">@porcino.PorcinoID</th>
-                <td><a href="#">@porcino.Nombre</a></td>
-                <td class="text-truncate">@porcino.Color</td>
-                <td>@porcino.Especie</td>
-                <td>@porcino.Raza</td>
-                <td>@porcino.Propietario</td>
-                <td>@porcino.Historia</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <div class="row">
+        <form action="/Custom/Consultas/" method="get" class="col-12">
+            <div class="row form-group">
+                <div class="col-6 col-sm-5 col-md-5 col-lg-3">
+                    <input type="text" class="form-control" name="nombre" id="busquedaTxt" placeholder="Nombre">
+                </div>
+                <div class="col-2">
+                    <input type="submit" class="btn btn-primary" value="Filtrar">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row px-lg-2 table-responsive-lg">
+        <table class="col-12 table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Especie</th>
+                    <th scope="col">Raza</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Historia</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                @foreach (var porcino in Model.porcinos)
+                {
+                <tr>
+                    <th scope="row">@porcino.PorcinoID</th>
+                    <td class="text-nowrap">@porcino.Nombre</td>
+                    <td class="text-nowrap">@porcino.Color</td>
+                    <td class="text-nowrap">@porcino.Especie</td>
+                    <td class="text-nowrap">@porcino.Raza</td>
+                    <td class="text-nowrap">@porcino.Propietario</td>
+                    <td class="text-nowrap">@porcino.Historia</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

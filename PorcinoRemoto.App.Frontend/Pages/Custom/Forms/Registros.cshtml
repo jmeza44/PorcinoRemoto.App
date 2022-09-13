@@ -2,11 +2,13 @@
 @model RegistrosModel
 @{ ViewData["Title"] = "Resgistros"; }
 
-<div class="container-lg mb-5 pt-1 pb-3 shadow-lg rounded-3 border">
-    <div class="row">
+<!-- Registro porcinos container -->
+<div class="container-lg mb-5 py-3 shadow-lg rounded-3 border">
+    <form action="" method="post" class="row">
+        <!-- Formulario Porcino -->
         <div class="col-12 col-md-6">
-            <h3 class="text-nowrap">Registra un porcino 🐽</h3>
-            <form action="#" class="row">
+            <div class="row">
+                <h3 class="col-12 text-nowrap">Registra un porcino 🐽</h3>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label>Nombre</label>
                     <input type="text" class="form-control">
@@ -23,11 +25,12 @@
                     <label>Raza</label>
                     <input type="text" class="form-control">
                 </div>
-            </form>
+            </div>
         </div>
+        <!-- Formulario Propietario -->
         <div class="col-12 col-md-6">
-            <h3 class="text-truncate">Registra su propietario 🧑/👩</h3>
-            <form action="#" class="row">
+            <div class="row">
+                <h3 class="col-12 text-truncate">Registra su propietario 👤</h3>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label>Nombres</label>
                     <input type="text" class="form-control">
@@ -60,55 +63,56 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-1 mt-3">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-    </div>
+        <!-- Botón Submit -->
+        <div class="col-sm-1 mt-3">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
 </div>
-
-<div class="container-lg pt-1 pb-3 shadow-lg rounded-3 border">
-    <div class="row">
-        <div class="col-12 col-lg-8">
-            <h3 class="text-nowrap">Registra un veterinario 👨‍⚕️🩺</h3>
-            <form action="#" class="row">
-                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+<!-- Registro veterinarios container -->
+<div class="container-lg py-3 shadow-lg rounded-3 border">
+    <form action="" method="post" class="row">
+        <div class="col-12">
+            <div class="row">
+                <h3 class="col-12 text-nowrap">Registra un veterinario 👨‍⚕️🩺</h3>
+                <div class="col-6 col-lg-4 form-group mb-2">
                     <label>Nombres</label>
                     <input type="text" class="form-control">
                 </div>
-                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                <div class="col-6 col-lg-4 form-group mb-2">
                     <label>Apellidos</label>
                     <input type="text" class="form-control">
                 </div>
-                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                <div class="col-6 col-lg-4 form-group mb-2">
                     <label>Tarjeta profesional</label>
                     <input type="text" class="form-control">
                 </div>
-                <div class="col-12 form-group mb-2">
+                <div class="col-12 col-lg-12 form-group mb-2">
                     <label>Direccion</label>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <input type="text" class="mb-2 form-control" placeholder="Carrera">
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <input type="text" class="mb-2 form-control" placeholder="Calle">
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <input type="text" class="mb-2 form-control" placeholder="Número">
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <input type="text" class="mb-2 form-control" placeholder="Ciudad">
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <input type="text" class="mb-2 form-control" placeholder="Departamento">
                         </div>
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-1 mt-3">
-        <button type="submit" class="btn btn-primary">Confirmar</button>
-    </div>
+        <div class="col-sm-1 mt-3">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
 </div>
