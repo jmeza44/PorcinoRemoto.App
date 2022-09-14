@@ -1,12 +1,13 @@
+using System.Threading.Tasks;
 using PorcinoRemoto.App.Dominio;
 namespace PorcinoRemoto.App.Persistencia
 {
     public interface IRepositorioPersona
     {
-        IEnumerable<Persona> GetAllPersonas();
-        Persona GetPersona(int idPersona);
+        List<Persona> GetAllPersonas();
+        Persona GetPersona(string idPersona);
         Persona AddPersona(Persona persona);
         Persona UpdatePersona(Persona persona);
-        void DeletePersona(int idPersona);
+        void DeletePersona(string idPersona);
     }
 }

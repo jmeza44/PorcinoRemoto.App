@@ -1,10 +1,7 @@
-using System.Runtime.CompilerServices;
 using System.Collections.Generic;
-using System.Security.Permissions;
 using System.Linq;
-using System;
 using PorcinoRemoto.App.Dominio;
-
+using Microsoft.EntityFrameworkCore;
 namespace PorcinoRemoto.App.Persistencia
 {
     public class RepositorioPersona : IRepositorioPersona
@@ -15,23 +12,14 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<Persona> IRepositorioPersona.GetAllPersonas()
+        List<Persona> IRepositorioPersona.GetAllPersonas()
         {
-            return _appContext.Personas;
+            return _appContext.Personas.ToList();
         }
 
-        Persona IRepositorioPersona.GetPersona(int idPersona)
+        Persona IRepositorioPersona.GetPersona(string idPersona)
         {
-            Console.WriteLine("Entrada" + idPersona);
-            using (var context = new AppContext())
-            {
-            var persona = context.Personas
-                .Where(w => w.PersonaID == idPersona)
-                .FirstOrDefault();
-            Console.WriteLine("Paso");
-        
-            return persona;
-            }
+            return _appContext.Personas.SingleOrDefault(p => p.PersonaID == idPersona);
         }
 
         Persona IRepositorioPersona.AddPersona(Persona persona)
@@ -57,7 +45,7 @@ namespace PorcinoRemoto.App.Persistencia
             return personaEncontrada;
         }
 
-        void IRepositorioPersona.DeletePersona(int idPersona)
+        void IRepositorioPersona.DeletePersona(string idPersona)
         {
             var personaEncontrada = _appContext.Personas.FirstOrDefault(p => p.PersonaID == idPersona);
             if (personaEncontrada == null)
