@@ -17,6 +17,5 @@ namespace PorcinoRemoto.App.Dominio
         public string MedicamentosFormulados { get; set; }
         public Porcino Porcino { get; set; }
         public Veterinario Veterinario { get; set; }
-        public HistoriaClinica HistoriaClinica { get; set; }
     }
 }

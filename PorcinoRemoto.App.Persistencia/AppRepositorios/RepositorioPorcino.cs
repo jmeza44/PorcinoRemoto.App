@@ -39,6 +39,7 @@ namespace PorcinoRemoto.App.Persistencia
                 porcinoEncontrado.Especie = porcino.Especie;
                 porcinoEncontrado.Raza = porcino.Raza;
                 porcinoEncontrado.Propietario = porcino.Propietario;
+                porcinoEncontrado.HistoriaClinica = porcino.HistoriaClinica;
 
                 _appContext.SaveChanges();
             }

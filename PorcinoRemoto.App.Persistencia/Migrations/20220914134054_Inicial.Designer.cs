@@ -12,7 +12,7 @@ using PorcinoRemoto.App.Persistencia;
 namespace PorcinoRemoto.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20220913201444_Inicial")]
+    [Migration("20220914134054_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -120,6 +120,9 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("HistoriaClinicaHistoriaID")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -133,6 +136,8 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PorcinoID");
+
+                    b.HasIndex("HistoriaClinicaHistoriaID");
 
                     b.HasIndex("PropietarioEmail");
 
@@ -192,9 +197,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     b.Property<double>("FrecuenciaRespiratoria")
                         .HasColumnType("float");
 
-                    b.Property<int>("HistoriaClinicaHistoriaID")
-                        .HasColumnType("int");
-
                     b.Property<string>("MedicamentosFormulados")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -212,8 +214,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("VisitaID");
-
-                    b.HasIndex("HistoriaClinicaHistoriaID");
 
                     b.HasIndex("PorcinoID");
 
@@ -235,11 +235,19 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Porcino", b =>
                 {
+                    b.HasOne("PorcinoRemoto.App.Dominio.HistoriaClinica", "HistoriaClinica")
+                        .WithMany()
+                        .HasForeignKey("HistoriaClinicaHistoriaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("PorcinoRemoto.App.Dominio.Propietario", "Propietario")
                         .WithMany()
                         .HasForeignKey("PropietarioEmail")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("HistoriaClinica");
 
                     b.Navigation("Propietario");
                 });
@@ -268,12 +276,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
 
             modelBuilder.Entity("PorcinoRemoto.App.Dominio.Visita", b =>
                 {
-                    b.HasOne("PorcinoRemoto.App.Dominio.HistoriaClinica", "HistoriaClinica")
-                        .WithMany()
-                        .HasForeignKey("HistoriaClinicaHistoriaID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("PorcinoRemoto.App.Dominio.Porcino", "Porcino")
                         .WithMany()
                         .HasForeignKey("PorcinoID")
@@ -283,8 +285,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     b.HasOne("PorcinoRemoto.App.Dominio.Veterinario", "Veterinario")
                         .WithMany()
                         .HasForeignKey("VeterinarioTarjetaProfesional");
-
-                    b.Navigation("HistoriaClinica");
 
                     b.Navigation("Porcino");
 

@@ -43,7 +43,6 @@ namespace PorcinoRemoto.App.Persistencia
                 visitaEncontrada.MedicamentosFormulados = visita.MedicamentosFormulados;
                 visitaEncontrada.Porcino = visita.Porcino;
                 visitaEncontrada.Veterinario = visita.Veterinario;
-                visitaEncontrada.HistoriaClinica = visita.HistoriaClinica;
 
                 _appContext.SaveChanges();
             }

@@ -107,11 +107,18 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Especie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Raza = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropietarioEmail = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    PropietarioEmail = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HistoriaClinicaHistoriaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Porcinos", x => x.PorcinoID);
+                    table.ForeignKey(
+                        name: "FK_Porcinos_HistoriasClinicas_HistoriaClinicaHistoriaID",
+                        column: x => x.HistoriaClinicaHistoriaID,
+                        principalTable: "HistoriasClinicas",
+                        principalColumn: "HistoriaID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Porcinos_Propietarios_PropietarioEmail",
                         column: x => x.PropietarioEmail,
@@ -134,18 +141,11 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     FrecuenciaCardiaca = table.Column<double>(type: "float", nullable: false),
                     MedicamentosFormulados = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PorcinoID = table.Column<int>(type: "int", nullable: false),
-                    VeterinarioTarjetaProfesional = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    HistoriaClinicaHistoriaID = table.Column<int>(type: "int", nullable: false)
+                    VeterinarioTarjetaProfesional = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visitas", x => x.VisitaID);
-                    table.ForeignKey(
-                        name: "FK_Visitas_HistoriasClinicas_HistoriaClinicaHistoriaID",
-                        column: x => x.HistoriaClinicaHistoriaID,
-                        principalTable: "HistoriasClinicas",
-                        principalColumn: "HistoriaID",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Visitas_Porcinos_PorcinoID",
                         column: x => x.PorcinoID,
@@ -165,6 +165,11 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 column: "DireccionID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Porcinos_HistoriaClinicaHistoriaID",
+                table: "Porcinos",
+                column: "HistoriaClinicaHistoriaID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Porcinos_PropietarioEmail",
                 table: "Porcinos",
                 column: "PropietarioEmail");
@@ -178,11 +183,6 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 name: "IX_Veterinarios_PersonaID",
                 table: "Veterinarios",
                 column: "PersonaID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Visitas_HistoriaClinicaHistoriaID",
-                table: "Visitas",
-                column: "HistoriaClinicaHistoriaID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visitas_PorcinoID",
@@ -201,13 +201,13 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 name: "Visitas");
 
             migrationBuilder.DropTable(
-                name: "HistoriasClinicas");
-
-            migrationBuilder.DropTable(
                 name: "Porcinos");
 
             migrationBuilder.DropTable(
                 name: "Veterinarios");
+
+            migrationBuilder.DropTable(
+                name: "HistoriasClinicas");
 
             migrationBuilder.DropTable(
                 name: "Propietarios");
