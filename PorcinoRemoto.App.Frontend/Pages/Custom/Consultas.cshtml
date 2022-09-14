@@ -35,7 +35,9 @@
                 </tr>
             </thead>
             <tbody class="table-striped">
-                @foreach (var porcino in Model.porcinos)
+                @if(Model.porcinos.Count() > 0)
+                {
+                foreach (var porcino in Model.porcinos)
                 {
                 <tr>
                     <th scope="row">@porcino.PorcinoID</th>
@@ -44,8 +46,13 @@
                     <td class="text-nowrap">@porcino.Especie</td>
                     <td class="text-nowrap">@porcino.Raza</td>
                     <td class="text-nowrap">@porcino.Propietario</td>
-                    <td class="text-nowrap">@porcino.Historia</td>
+                    <td class="text-nowrap">@porcino.HistoriaClinica</td>
                 </tr>
+                }
+                } else {
+                <div class="mt-3 alert alert-secondary" role="alert">
+                    No hay resultados
+                </div>
                 }
             </tbody>
         </table>

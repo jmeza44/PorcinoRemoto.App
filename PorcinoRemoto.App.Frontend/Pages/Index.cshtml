@@ -16,11 +16,20 @@
             </p>
             <div class="d-grid d-md-flex justify-content-md-start mb-lg-3 mb-4
                 gap-2">
-                <a class="text-light text-decoration-none btn btn-primary btn-lg
-                    me-md-2 fw-bold px-4" asp-area=""
-                    asp-page="/Custom/Forms/Registros">Registros</a>
-                <a class="btn btn-outline-secondary btn-lg px-4" asp-area=""
-                    asp-page="/Custom/Consultas">
+                <div class="dropdown">
+                    <button class="text-light text-decoration-none btn btn-primary btn-lg
+                    me-md-2 fw-bold px-4" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Registros
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" asp-area="" asp-page="/Custom/Forms/RegistroPorcino">Porcinos</a>
+                        </li>
+                        <li><a class="dropdown-item" asp-area=""
+                                asp-page="/Custom/Forms/RegistroVeterinario">Veterinarios</a></li>
+                    </ul>
+                </div>
+                <a class="btn btn-outline-secondary btn-lg px-4" asp-area="" asp-page="/Custom/Consultas">
                     Consultas
                 </a>
             </div>

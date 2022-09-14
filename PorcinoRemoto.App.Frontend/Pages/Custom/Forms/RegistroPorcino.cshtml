@@ -1,0 +1,100 @@
+@page
+@model RegistroPorModel
+@{ ViewData["Title"] = "Registro Porcino"; }
+
+<!-- Registro porcinos container -->
+<div class="container-lg mb-5 py-3 shadow-lg rounded-3 border">
+    <form method="post" class="row">
+        <!-- Formulario Porcino -->
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <h3 class="col-12 text-nowrap">Registra un porcino 🐽</h3>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="porcinoPost.Nombre">Nombre</label>
+                    <input type="text" asp-for="porcinoPost.Nombre" class="form-control">
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="porcinoPost.Color">Color</label>
+                    <input type="text" asp-for="porcinoPost.Color" class="form-control">
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="porcinoPost.Especie">Especie</label>
+                    <input type="text" asp-for="porcinoPost.Especie" class="form-control">
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="porcinoPost.Raza">Raza</label>
+                    <input type="text" asp-for="porcinoPost.Raza" class="form-control">
+                </div>
+            </div>
+        </div>
+        <!-- Formulario Propietario -->
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <h3 class="col-12 text-truncate">Registra su propietario 👤</h3>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="propietarioPost.Persona.PersonaID">Identificación</label>
+                    <input type="text" asp-for="propietarioPost.Persona.PersonaID" class="form-control">
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label>Nombres</label>
+                    <div class="row">
+                        <div class="col-6 pe-1">
+                            <input type="text" asp-for="propietarioPost.Persona.PrimerNombre" class="form-control"
+                                placeholder="Primer">
+                        </div>
+                        <div class="col-6 ps-1">
+                            <input type="text" asp-for="propietarioPost.Persona.SegundoNombre" class="form-control"
+                                placeholder="Segundo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label>Apellidos</label>
+                    <div class="row">
+                        <div class="col-6 pe-1">
+                            <input type="text" asp-for="propietarioPost.Persona.PrimerApellido" class="form-control"
+                                placeholder="Primer">
+                        </div>
+                        <div class="col-6 ps-1">
+                            <input type="text" asp-for="propietarioPost.Persona.SegundoApellido" class="form-control"
+                                placeholder="Segundo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
+                    <label asp-for="propietarioPost.Email">Email</label>
+                    <input type="text" asp-for="propietarioPost.Email" class="form-control">
+                </div>
+                <div class="col-12 form-group mb-2">
+                    <label>Direccion</label>
+                    <div class="row">
+                        <div class="col-6">
+                            <input type="text" asp-for="propietarioPost.Persona.Direccion.Carrera"
+                                class="mb-2 form-control" placeholder="Carrera">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" asp-for="propietarioPost.Persona.Direccion.Calle"
+                                class="mb-2 form-control" placeholder="Calle">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" asp-for="propietarioPost.Persona.Direccion.Numero"
+                                class="mb-2 form-control" placeholder="Número">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" asp-for="propietarioPost.Persona.Direccion.Ciudad"
+                                class="mb-2 form-control" placeholder="Ciudad">
+                        </div>
+                        <div class="col-6">
+                            <input type="text" asp-for="propietarioPost.Persona.Direccion.Departamento"
+                                class="mb-2 form-control" placeholder="Departamento">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Botón Submit -->
+        <div class="col-sm-1 mt-3">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
+</div>

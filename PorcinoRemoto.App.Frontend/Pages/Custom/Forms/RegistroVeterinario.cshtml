@@ -1,0 +1,76 @@
+@page
+@model RegistroVetModel
+@{ ViewData["Title"] = "Registro Veterinario"; }
+
+<!-- Registro veterinarios container -->
+<div class="container-lg py-3 shadow-lg rounded-3 border">
+    <form method="post" class="row">
+        <div class="col-12">
+            <div class="row">
+                <h3 class="col-12 text-nowrap">Registra un veterinario 👨‍⚕️🩺</h3>
+                <div class="col-6 col-lg-4 col-xl-2 form-group mb-2">
+                    <label>Identificación</label>
+                    <input type="text" asp-for="veterinarioPost.Persona.PersonaID" class="form-control">
+                </div>
+                <div class="col-6 col-lg-8 col-xl-4 form-group mb-2">
+                    <label>Nombres</label>
+                    <div class="row">
+                        <div class="col-6 pe-1">
+                            <input type="text" asp-for="veterinarioPost.Persona.PrimerNombre" class="form-control"
+                                placeholder="Primer">
+                        </div>
+                        <div class="col-6 ps-1">
+                            <input type="text" asp-for="veterinarioPost.Persona.SegundoNombre" class="form-control"
+                                placeholder="Segundo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4 col-xl-2 form-group mb-2">
+                    <label>Tarjeta profesional</label>
+                    <input type="text" asp-for="veterinarioPost.TarjetaProfesional" class="form-control">
+                </div>
+                <div class="col-6 col-lg-8 col-xl-4 form-group mb-2">
+                    <label>Apellidos</label>
+                    <div class="row">
+                        <div class="col-6 pe-1">
+                            <input type="text" asp-for="veterinarioPost.Persona.PrimerApellido" class="form-control"
+                                placeholder="Primer">
+                        </div>
+                        <div class="col-6 ps-1">
+                            <input type="text" asp-for="veterinarioPost.Persona.SegundoApellido" class="form-control"
+                                placeholder="Segundo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 form-group mb-2">
+                    <label>Direccion</label>
+                    <div class="row">
+                        <div class="col-4 col-xl-2">
+                            <input type="text" asp-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="mb-2 form-control" placeholder="Carrera">
+                        </div>
+                        <div class="col-4 col-xl-2">
+                            <input type="text" asp-for="veterinarioPost.Persona.Direccion.Calle"
+                                class="mb-2 form-control" placeholder="Calle">
+                        </div>
+                        <div class="col-4 col-xl-2">
+                            <input type="text" asp-for="veterinarioPost.Persona.Direccion.Numero"
+                                class="mb-2 form-control" placeholder="Número">
+                        </div>
+                        <div class="col-4 col-xl-2">
+                            <input type="text" asp-for="veterinarioPost.Persona.Direccion.Ciudad"
+                                class="mb-2 form-control" placeholder="Ciudad">
+                        </div>
+                        <div class="col-4 col-xl-2">
+                            <input type="text" asp-for="veterinarioPost.Persona.Direccion.Departamento"
+                                class="mb-2 form-control" placeholder="Departamento">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-1 mt-3">
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+        </div>
+    </form>
+</div>

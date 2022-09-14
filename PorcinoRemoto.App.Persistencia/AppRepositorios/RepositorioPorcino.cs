@@ -12,9 +12,9 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<Porcino> IRepositorioPorcino.GetAllPorcinos()
+        List<Porcino> IRepositorioPorcino.GetAllPorcinos()
         {
-            return _appContext.Porcinos;
+            return _appContext.Porcinos.ToList();
         }
 
         Porcino IRepositorioPorcino.GetPorcino(int idPorcino)
