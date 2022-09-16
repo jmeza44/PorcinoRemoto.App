@@ -11,6 +11,7 @@
                 <div class="col-6 col-lg-4 col-xl-2 form-group mb-2">
                     <label>Identificación</label>
                     <input type="text" asp-for="veterinarioPost.Persona.PersonaID" class="form-control">
+                    <span asp-validation-for="veterinarioPost.Persona.PersonaID" class="text-danger"></span>
                 </div>
                 <div class="col-6 col-lg-8 col-xl-4 form-group mb-2">
                     <label>Nombres</label>
@@ -18,16 +19,19 @@
                         <div class="col-6 pe-1">
                             <input type="text" asp-for="veterinarioPost.Persona.PrimerNombre" class="form-control"
                                 placeholder="Primer">
+                            <span asp-validation-for="veterinarioPost.Persona.PrimerNombre" class="text-danger"></span>
                         </div>
                         <div class="col-6 ps-1">
                             <input type="text" asp-for="veterinarioPost.Persona.SegundoNombre" class="form-control"
                                 placeholder="Segundo">
+                            <span asp-validation-for="veterinarioPost.Persona.SegundoNombre" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-xl-2 form-group mb-2">
                     <label>Tarjeta profesional</label>
                     <input type="text" asp-for="veterinarioPost.TarjetaProfesional" class="form-control">
+                    <span asp-validation-for="veterinarioPost.TarjetaProfesional" class="text-danger"></span>
                 </div>
                 <div class="col-6 col-lg-8 col-xl-4 form-group mb-2">
                     <label>Apellidos</label>
@@ -35,10 +39,14 @@
                         <div class="col-6 pe-1">
                             <input type="text" asp-for="veterinarioPost.Persona.PrimerApellido" class="form-control"
                                 placeholder="Primer">
+                            <span asp-validation-for="veterinarioPost.Persona.PrimerApellido"
+                                class="text-danger"></span>
                         </div>
                         <div class="col-6 ps-1">
                             <input type="text" asp-for="veterinarioPost.Persona.SegundoApellido" class="form-control"
                                 placeholder="Segundo">
+                            <span asp-validation-for="veterinarioPost.Persona.SegundoApellido"
+                                class="text-danger"></span>
                         </div>
                     </div>
                 </div>
@@ -48,22 +56,32 @@
                         <div class="col-4 col-xl-2">
                             <input type="text" asp-for="veterinarioPost.Persona.Direccion.Carrera"
                                 class="mb-2 form-control" placeholder="Carrera">
+                            <span asp-validation-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="text-danger"></span>
                         </div>
                         <div class="col-4 col-xl-2">
                             <input type="text" asp-for="veterinarioPost.Persona.Direccion.Calle"
                                 class="mb-2 form-control" placeholder="Calle">
+                            <span asp-validation-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="text-danger"></span>
                         </div>
                         <div class="col-4 col-xl-2">
                             <input type="text" asp-for="veterinarioPost.Persona.Direccion.Numero"
                                 class="mb-2 form-control" placeholder="Número">
+                            <span asp-validation-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="text-danger"></span>
                         </div>
                         <div class="col-4 col-xl-2">
                             <input type="text" asp-for="veterinarioPost.Persona.Direccion.Ciudad"
                                 class="mb-2 form-control" placeholder="Ciudad">
+                            <span asp-validation-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="text-danger"></span>
                         </div>
                         <div class="col-4 col-xl-2">
                             <input type="text" asp-for="veterinarioPost.Persona.Direccion.Departamento"
                                 class="mb-2 form-control" placeholder="Departamento">
+                            <span asp-validation-for="veterinarioPost.Persona.Direccion.Carrera"
+                                class="text-danger"></span>
                         </div>
                     </div>
                 </div>

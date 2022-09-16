@@ -12,9 +12,9 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<Direccion> IRepositorioDireccion.GetAllDireccion()
+        List<Direccion> IRepositorioDireccion.GetAllDireccion()
         {
-            return _appContext.Direcciones;
+            return _appContext.Direcciones.ToList();
         }
 
         Direccion IRepositorioDireccion.GetDireccion(int idDireccion)

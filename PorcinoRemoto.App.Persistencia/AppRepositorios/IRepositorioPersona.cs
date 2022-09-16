@@ -1,4 +1,5 @@
 using PorcinoRemoto.App.Dominio;
+using System.Collections.Generic;
 namespace PorcinoRemoto.App.Persistencia
 {
     public interface IRepositorioPersona

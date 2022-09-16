@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PorcinoRemoto.App.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace PorcinoRemoto.App.Persistencia
 {
@@ -12,14 +13,18 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<Propietario> IRepositorioPropietario.GetAllPropietario()
+        List<Propietario> IRepositorioPropietario.GetAllPropietario()
         {
-            return _appContext.Propietarios;
+            return _appContext.Propietarios
+            .Include(p => p.Persona.Direccion)
+            .ToList();
         }
 
         Propietario IRepositorioPropietario.GetPropietario(string idPersona)
         {
-            return _appContext.Propietarios.FirstOrDefault(p => p.Persona.PersonaID == idPersona);
+            return _appContext.Propietarios
+            .Include(p => p.Persona.Direccion)
+            .FirstOrDefault(p => p.Persona.PersonaID == idPersona);
         }
 
         Propietario IRepositorioPropietario.AddPropietario(Propietario propietario)

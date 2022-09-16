@@ -45,9 +45,9 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 {
                     PersonaID = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     PrimerNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoNombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PrimerApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    SegundoApellido = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DireccionID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -65,12 +65,12 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 name: "Propietarios",
                 columns: table => new
                 {
-                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PersonaID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    PersonaID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Propietarios", x => x.Email);
+                    table.PrimaryKey("PK_Propietarios", x => x.PersonaID);
                     table.ForeignKey(
                         name: "FK_Propietarios_Personas_PersonaID",
                         column: x => x.PersonaID,
@@ -83,12 +83,12 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 name: "Veterinarios",
                 columns: table => new
                 {
-                    TarjetaProfesional = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    PersonaID = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    PersonaID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TarjetaProfesional = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Veterinarios", x => x.TarjetaProfesional);
+                    table.PrimaryKey("PK_Veterinarios", x => x.PersonaID);
                     table.ForeignKey(
                         name: "FK_Veterinarios_Personas_PersonaID",
                         column: x => x.PersonaID,
@@ -107,24 +107,23 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Especie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Raza = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropietarioEmail = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    HistoriaClinicaHistoriaID = table.Column<int>(type: "int", nullable: false)
+                    PropietarioID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    HistoriaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Porcinos", x => x.PorcinoID);
                     table.ForeignKey(
-                        name: "FK_Porcinos_HistoriasClinicas_HistoriaClinicaHistoriaID",
-                        column: x => x.HistoriaClinicaHistoriaID,
+                        name: "FK_Porcinos_HistoriasClinicas_HistoriaID",
+                        column: x => x.HistoriaID,
                         principalTable: "HistoriasClinicas",
                         principalColumn: "HistoriaID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Porcinos_Propietarios_PropietarioEmail",
-                        column: x => x.PropietarioEmail,
+                        name: "FK_Porcinos_Propietarios_PropietarioID",
+                        column: x => x.PropietarioID,
                         principalTable: "Propietarios",
-                        principalColumn: "Email",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PersonaID");
                 });
 
             migrationBuilder.CreateTable(
@@ -140,23 +139,28 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     FrecuenciaRespiratoria = table.Column<double>(type: "float", nullable: false),
                     FrecuenciaCardiaca = table.Column<double>(type: "float", nullable: false),
                     MedicamentosFormulados = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PorcinoID = table.Column<int>(type: "int", nullable: false),
-                    VeterinarioTarjetaProfesional = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    PorcinoID = table.Column<int>(type: "int", nullable: true),
+                    VeterinarioID = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    HistoriaClinicaHistoriaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visitas", x => x.VisitaID);
                     table.ForeignKey(
+                        name: "FK_Visitas_HistoriasClinicas_HistoriaClinicaHistoriaID",
+                        column: x => x.HistoriaClinicaHistoriaID,
+                        principalTable: "HistoriasClinicas",
+                        principalColumn: "HistoriaID");
+                    table.ForeignKey(
                         name: "FK_Visitas_Porcinos_PorcinoID",
                         column: x => x.PorcinoID,
                         principalTable: "Porcinos",
-                        principalColumn: "PorcinoID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "PorcinoID");
                     table.ForeignKey(
-                        name: "FK_Visitas_Veterinarios_VeterinarioTarjetaProfesional",
-                        column: x => x.VeterinarioTarjetaProfesional,
+                        name: "FK_Visitas_Veterinarios_VeterinarioID",
+                        column: x => x.VeterinarioID,
                         principalTable: "Veterinarios",
-                        principalColumn: "TarjetaProfesional");
+                        principalColumn: "PersonaID");
                 });
 
             migrationBuilder.CreateIndex(
@@ -165,24 +169,19 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 column: "DireccionID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Porcinos_HistoriaClinicaHistoriaID",
+                name: "IX_Porcinos_HistoriaID",
                 table: "Porcinos",
+                column: "HistoriaID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Porcinos_PropietarioID",
+                table: "Porcinos",
+                column: "PropietarioID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Visitas_HistoriaClinicaHistoriaID",
+                table: "Visitas",
                 column: "HistoriaClinicaHistoriaID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Porcinos_PropietarioEmail",
-                table: "Porcinos",
-                column: "PropietarioEmail");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Propietarios_PersonaID",
-                table: "Propietarios",
-                column: "PersonaID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Veterinarios_PersonaID",
-                table: "Veterinarios",
-                column: "PersonaID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visitas_PorcinoID",
@@ -190,9 +189,9 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 column: "PorcinoID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Visitas_VeterinarioTarjetaProfesional",
+                name: "IX_Visitas_VeterinarioID",
                 table: "Visitas",
-                column: "VeterinarioTarjetaProfesional");
+                column: "VeterinarioID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

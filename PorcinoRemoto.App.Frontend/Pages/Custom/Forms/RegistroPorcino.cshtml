@@ -12,18 +12,22 @@
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="porcinoPost.Nombre">Nombre</label>
                     <input type="text" asp-for="porcinoPost.Nombre" class="form-control">
+                    <span asp-validation-for="porcinoPost.Nombre" class="text-danger"></span>
                 </div>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="porcinoPost.Color">Color</label>
                     <input type="text" asp-for="porcinoPost.Color" class="form-control">
+                    <span asp-validation-for="porcinoPost.Color" class="text-danger"></span>
                 </div>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="porcinoPost.Especie">Especie</label>
                     <input type="text" asp-for="porcinoPost.Especie" class="form-control">
+                    <span asp-validation-for="porcinoPost.Especie" class="text-danger"></span>
                 </div>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="porcinoPost.Raza">Raza</label>
                     <input type="text" asp-for="porcinoPost.Raza" class="form-control">
+                    <span asp-validation-for="porcinoPost.Raza" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -34,6 +38,7 @@
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="propietarioPost.Persona.PersonaID">Identificación</label>
                     <input type="text" asp-for="propietarioPost.Persona.PersonaID" class="form-control">
+                    <span asp-validation-for="propietarioPost.Persona.PersonaID"></span>
                 </div>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label>Nombres</label>
@@ -41,10 +46,12 @@
                         <div class="col-6 pe-1">
                             <input type="text" asp-for="propietarioPost.Persona.PrimerNombre" class="form-control"
                                 placeholder="Primer">
+                            <span asp-validation-for="propietarioPost.Persona.PrimerNombre"></span>
                         </div>
                         <div class="col-6 ps-1">
                             <input type="text" asp-for="propietarioPost.Persona.SegundoNombre" class="form-control"
                                 placeholder="Segundo">
+                            <span asp-validation-for="propietarioPost.Persona.SegundoNombre"></span>
                         </div>
                     </div>
                 </div>
@@ -54,16 +61,19 @@
                         <div class="col-6 pe-1">
                             <input type="text" asp-for="propietarioPost.Persona.PrimerApellido" class="form-control"
                                 placeholder="Primer">
+                            <span asp-validation-for="propietarioPost.Persona.PrimerApellido"></span>
                         </div>
                         <div class="col-6 ps-1">
                             <input type="text" asp-for="propietarioPost.Persona.SegundoApellido" class="form-control"
                                 placeholder="Segundo">
+                            <span asp-validation-for="propietarioPost.Persona.SegundoApellido"></span>
                         </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-12 col-lg-6 form-group mb-2">
                     <label asp-for="propietarioPost.Email">Email</label>
                     <input type="text" asp-for="propietarioPost.Email" class="form-control">
+                    <span asp-validation-for="propietarioPost.Email"></span>
                 </div>
                 <div class="col-12 form-group mb-2">
                     <label>Direccion</label>
@@ -71,22 +81,27 @@
                         <div class="col-6">
                             <input type="text" asp-for="propietarioPost.Persona.Direccion.Carrera"
                                 class="mb-2 form-control" placeholder="Carrera">
+                            <span asp-validation-for="propietarioPost.Persona.Direccion.Carrera"></span>
                         </div>
                         <div class="col-6">
                             <input type="text" asp-for="propietarioPost.Persona.Direccion.Calle"
                                 class="mb-2 form-control" placeholder="Calle">
+                            <span asp-validation-for="propietarioPost.Persona.Direccion.Calle"></span>
                         </div>
                         <div class="col-6">
                             <input type="text" asp-for="propietarioPost.Persona.Direccion.Numero"
                                 class="mb-2 form-control" placeholder="Número">
+                            <span asp-validation-for="propietarioPost.Persona.Direccion.Numero"></span>
                         </div>
                         <div class="col-6">
                             <input type="text" asp-for="propietarioPost.Persona.Direccion.Ciudad"
                                 class="mb-2 form-control" placeholder="Ciudad">
+                            <span asp-validation-for="propietarioPost.Persona.Direccion.Ciudad"></span>
                         </div>
                         <div class="col-6">
                             <input type="text" asp-for="propietarioPost.Persona.Direccion.Departamento"
                                 class="mb-2 form-control" placeholder="Departamento">
+                            <span asp-validation-for="propietarioPost.Persona.Direccion.Departamento"></span>
                         </div>
                     </div>
                 </div>

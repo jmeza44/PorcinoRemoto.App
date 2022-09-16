@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PorcinoRemoto.App.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace PorcinoRemoto.App.Persistencia
 {
@@ -12,14 +13,22 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<Visita> IRepositorioVisita.GetAllVisitas()
+        List<Visita> IRepositorioVisita.GetAllVisitas()
         {
-            return _appContext.Visitas;
+            return _appContext.Visitas
+            .Include(p => p.Porcino.Propietario.Persona.Direccion)
+            .Include(p => p.Porcino.HistoriaClinica)
+            .Include(p => p.Veterinario.Persona.Direccion)
+            .ToList();
         }
 
         Visita IRepositorioVisita.GetVisita(int idVisita)
         {
-            return _appContext.Visitas.FirstOrDefault(p => p.VisitaID == idVisita);
+            return _appContext.Visitas
+            .Include(p => p.Porcino.Propietario.Persona.Direccion)
+            .Include(p => p.Porcino.HistoriaClinica)
+            .Include(p => p.Veterinario.Persona.Direccion)
+            .FirstOrDefault(p => p.VisitaID == idVisita);
         }
 
         Visita IRepositorioVisita.AddVisita(Visita visita)

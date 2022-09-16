@@ -41,12 +41,13 @@
                 {
                 <tr>
                     <th scope="row">@porcino.PorcinoID</th>
-                    <td class="text-nowrap">@porcino.Nombre</td>
+                    <td class="text-nowrap"><a asp-page="/Custom/Detalles/DetallePorcino" asp-route-idPorcino="@porcino.PorcinoID">@porcino.Nombre</a></td>
                     <td class="text-nowrap">@porcino.Color</td>
                     <td class="text-nowrap">@porcino.Especie</td>
                     <td class="text-nowrap">@porcino.Raza</td>
-                    <td class="text-nowrap">@porcino.Propietario</td>
-                    <td class="text-nowrap">@porcino.HistoriaClinica</td>
+                    <td class="text-nowrap"><a href="">@porcino.Propietario.Persona.PrimerNombre
+                            @porcino.Propietario.Persona.PrimerApellido</a></td>
+                    <td class="text-nowrap"><a href="">@porcino.HistoriaClinica.HistoriaID</a></td>
                 </tr>
                 }
                 } else {

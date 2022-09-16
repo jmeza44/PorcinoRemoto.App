@@ -1,9 +1,10 @@
 using PorcinoRemoto.App.Dominio;
+using System.Collections.Generic;
 namespace PorcinoRemoto.App.Persistencia
 {
     public interface IRepositorioPropietario
     {
-        IEnumerable<Propietario> GetAllPropietario();
+        List<Propietario> GetAllPropietario();
         Propietario GetPropietario(string idPersona);
         Propietario AddPropietario(Propietario propietario);
         Propietario UpdatePropietario(Propietario propietario );

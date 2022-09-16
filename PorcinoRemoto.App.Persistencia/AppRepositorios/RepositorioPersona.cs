@@ -14,12 +14,16 @@ namespace PorcinoRemoto.App.Persistencia
 
         List<Persona> IRepositorioPersona.GetAllPersonas()
         {
-            return _appContext.Personas.ToList();
+            return _appContext.Personas
+            .Include(p => p.Direccion)
+            .ToList();
         }
 
         Persona IRepositorioPersona.GetPersona(string idPersona)
         {
-            return _appContext.Personas.SingleOrDefault(p => p.PersonaID == idPersona);
+            return _appContext.Personas
+            .Include(p => p.Direccion)
+            .FirstOrDefault(p => p.PersonaID == idPersona);
         }
 
         Persona IRepositorioPersona.AddPersona(Persona persona)

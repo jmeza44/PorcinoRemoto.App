@@ -12,9 +12,9 @@ namespace PorcinoRemoto.App.Persistencia
             _appContext = appContext;
         }
 
-        IEnumerable<HistoriaClinica> IRepositorioHistoriaClinica.GetAllHistoriasClinicas()
+        List<HistoriaClinica> IRepositorioHistoriaClinica.GetAllHistoriasClinicas()
         {
-            return _appContext.HistoriasClinicas;
+            return _appContext.HistoriasClinicas.ToList();
         }
 
         HistoriaClinica IRepositorioHistoriaClinica.GetHistoriaClinica(int idHistoriaClinica)

@@ -23,15 +23,11 @@ public class ConsultasModel : PageModel
     public IActionResult OnGet(string nombre)
     {
         porcinos = _repoPorcino.GetAllPorcinos();
-        if (nombre == null)
-        {
-            return Page();
-        }
-        else
+        if (nombre != null)
         {
             porcinos = FiltrarPorcinos(nombre);
-            return Page();
         }
+        return Page();
     }
 
     public List<Porcino> FiltrarPorcinos(string nombre)

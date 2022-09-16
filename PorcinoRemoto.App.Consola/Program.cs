@@ -1,66 +1,43 @@
 ﻿using PorcinoRemoto.App.Dominio;
 using PorcinoRemoto.App.Persistencia;
+using System;
 using System.Collections.Generic;
 namespace PorcinoRemoto.App.Consola
 {
     public class Program
     {
         private static IRepositorioPersona _repoPersona = new RepositorioPersona(new Persistencia.AppContext());
+        private static IRepositorioPorcino _repoPorcino = new RepositorioPorcino(new Persistencia.AppContext());
         public static void Main(string[] args)
         {
-            Persona personaCreando = new Persona
+            Porcino porcinoEncontrado = BuscarPorcino(1);
+            if (porcinoEncontrado != null)
             {
-                PersonaID = "1003826586",
-                PrimerNombre = "Pinel",
-                SegundoNombre = "Bill",
-                PrimerApellido = "Orslok",
-                SegundoApellido = "Luyan",
-                Direccion = new Direccion
-                {
-                    Carrera = "54B",
-                    Calle = "15",
-                    Numero = "6",
-                    Ciudad = "Barranquilla",
-                    Departamento = "Atlantico",
-                }
-            };
-
-            // Uso de la adición a la base de datos
-            // AddPersona(personaCreando);
-
-            // Uso de la búsqueda completa en la base de datos
-            List<Persona> personas = BuscarPersonas();
-            if (personas != null)
-            {
-                if (personas.Count() > 0)
-                {
-                    int i = 1;
-                    foreach (var persona in personas)
-                    {
-                        Console.WriteLine(i + ". " + persona.PersonaID);
-                        i++;
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Empty");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error");
-            }
-
-            // Uso de la búsqueda individual
-            Persona personaEncontrada = _repoPersona.GetPersona("1003826586");
-            if (personaEncontrada != null)
-            {
-                Console.WriteLine("Persona encontrada!");
-                Console.WriteLine("ID: " + personaEncontrada.PersonaID);
-            }
-            else
-            {
-                Console.WriteLine("Persona no encontrada!");
+                Console.Write(
+                porcinoEncontrado.PorcinoID +
+                "\t" + porcinoEncontrado.Nombre +
+                "\t" + porcinoEncontrado.Color +
+                "\t" + porcinoEncontrado.Especie +
+                "\t" + porcinoEncontrado.Raza +
+                "\n" + "Propietario:\n" +
+                porcinoEncontrado.Propietario.Email +
+                "\n" + "Persona:\n" +
+                porcinoEncontrado.Propietario.Persona.PersonaID +
+                "\t" + porcinoEncontrado.Propietario.Persona.PrimerNombre +
+                "\t" + porcinoEncontrado.Propietario.Persona.SegundoNombre +
+                "\t" + porcinoEncontrado.Propietario.Persona.PrimerApellido +
+                "\t" + porcinoEncontrado.Propietario.Persona.SegundoApellido +
+                "\n" + "Direccion:\n" +
+                porcinoEncontrado.Propietario.Persona.Direccion.DireccionID +
+                "\t" + porcinoEncontrado.Propietario.Persona.Direccion.Carrera +
+                "\t" + porcinoEncontrado.Propietario.Persona.Direccion.Calle +
+                "\t" + porcinoEncontrado.Propietario.Persona.Direccion.Numero +
+                "\t" + porcinoEncontrado.Propietario.Persona.Direccion.Ciudad +
+                "\t" + porcinoEncontrado.Propietario.Persona.Direccion.Departamento +
+                "\n" + "Historia Clinica:\n" +
+                porcinoEncontrado.HistoriaClinica.HistoriaID +
+                "\t" + porcinoEncontrado.HistoriaClinica.FechaGeneracion
+                );
             }
         }
 
@@ -81,6 +58,40 @@ namespace PorcinoRemoto.App.Consola
         {
             Console.WriteLine("Buscando todas las personas!");
             return _repoPersona.GetAllPersonas();
+        }
+        private static void AddPorcino(Porcino porcino)
+        {
+            Console.WriteLine("Agregando un porcino!");
+            _repoPorcino.AddPorcino(porcino);
+            Console.WriteLine("Porcino agregado!");
+        }
+        private static Porcino BuscarPorcino(int idPorcino)
+        {
+            Console.WriteLine("Buscando un porcino!");
+            return _repoPorcino.GetPorcino(idPorcino);
+        }
+
+        private static List<Porcino> BuscarPorcinos()
+        {
+            Console.WriteLine("Buscando todos los porcinos!");
+            return _repoPorcino.GetAllPorcinos();
+        }
+
+        private static void MostrarInfoPersona(Persona persona)
+        {
+            Console.Write(
+                persona.PersonaID +
+                "\t" + persona.PrimerNombre +
+                "\t" + persona.SegundoNombre +
+                "\t" + persona.PrimerApellido +
+                "\t" + persona.SegundoApellido +
+                "\t" + persona.Direccion.DireccionID +
+                "\t" + persona.Direccion.Carrera +
+                "\t" + persona.Direccion.Calle +
+                "\t" + persona.Direccion.Numero +
+                "\t" + persona.Direccion.Ciudad +
+                "\t" + persona.Direccion.Departamento
+                );
         }
     }
 }

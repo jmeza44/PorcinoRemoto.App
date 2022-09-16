@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PorcinoRemoto.App.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace PorcinoRemoto.App.Persistencia
 {
@@ -14,19 +15,38 @@ namespace PorcinoRemoto.App.Persistencia
 
         List<Porcino> IRepositorioPorcino.GetAllPorcinos()
         {
-            return _appContext.Porcinos.ToList();
+            return _appContext.Porcinos
+            .Include(p => p.Propietario.Persona.Direccion)
+            .Include(p => p.HistoriaClinica)
+            .ToList();
         }
 
         Porcino IRepositorioPorcino.GetPorcino(int idPorcino)
         {
-            return _appContext.Porcinos.FirstOrDefault(p => p.PorcinoID == idPorcino);
+            return _appContext.Porcinos
+            .Include(p => p.Propietario.Persona.Direccion)
+            .Include(p => p.HistoriaClinica)
+            .FirstOrDefault(p => p.PorcinoID == idPorcino);
         }
 
         Porcino IRepositorioPorcino.AddPorcino(Porcino porcino)
         {
-            var porcinoAdicionado = _appContext.Porcinos.Add(porcino);
+            Propietario propietario = _appContext.Propietarios
+            .Include(p => p.Persona.Direccion)
+            .Include(p => p.Porcinos)
+            .FirstOrDefault(p => p.Persona.PersonaID == porcino.Propietario.Persona.PersonaID); ;
+            if (propietario != null)
+            {
+                propietario.Porcinos.Add(porcino);
+                return porcino;
+            }
+            else
+            {
+                var porcinoAdicionado = _appContext.Porcinos.Add(porcino);
+                return porcinoAdicionado.Entity;
+            }
+
             _appContext.SaveChanges();
-            return porcinoAdicionado.Entity;
         }
 
         Porcino IRepositorioPorcino.UpdatePorcino(Porcino porcino)

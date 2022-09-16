@@ -1,0 +1,55 @@
+@page
+@model DetallePorcinoModel
+@{ ViewData["Title"] = "Detalle Porcino"; }
+<div class="container">
+    <div class="row">
+        <!-- Contenedor "Header" -->
+        <div class="col-12">
+            <a class="btn btn-outline-secondary" asp-page="/Custom/Consultas">🔙 Volver</a>
+        </div>
+        <!-- Contenedor info porcino -->
+        <div class="col-12 col-lg-5 mt-4 p-3 border rounded-3 shadow">
+            <div class="row">
+                <div class="col-12">
+                    <h3>🐽 Porcino</h3>
+                </div>
+                <div class="col-6"><b>Nombre: </b>@Model.porcino.Nombre</div>
+                <div class="col-6"><b>Color: </b>@Model.porcino.Color</div>
+                <div class="col-6"><b>Especie: </b>@Model.porcino.Especie</div>
+                <div class="col-6"><b>Raza: </b>@Model.porcino.Raza</div>
+            </div>
+        </div>
+        <!-- Contenedor info propietario -->
+        <div class="col-12 col-lg-6 offset-lg-1 mt-4 p-3 border rounded-3 shadow">
+            <div class="row">
+                <div class="col-12">
+                    <h3>🧑 Propietario</h3>
+                </div>
+                <div class="col-12"><b>Identificación: </b>@Model.porcino.Propietario.Persona.PersonaID</div>
+                <div class="col-6"><b>Nombres: </b>@Model.porcino.Propietario.Persona.PrimerNombre
+                    @Model.porcino.Propietario.Persona.SegundoNombre</div>
+                <div class="col-6"><b>Apellidos: </b>@Model.porcino.Propietario.Persona.PrimerApellido
+                    @Model.porcino.Propietario.Persona.SegundoApellido</div>
+                <div class="col-12 text-break"><b>Email: </b>@Model.porcino.Propietario.Email</div>
+                <div class="col-12">
+                    <b>Direccion: </b>
+                    @Model.porcino.Propietario.Persona.Direccion.Carrera
+                    @Model.porcino.Propietario.Persona.Direccion.Calle
+                    @Model.porcino.Propietario.Persona.Direccion.Numero
+                    @Model.porcino.Propietario.Persona.Direccion.Ciudad
+                    @Model.porcino.Propietario.Persona.Direccion.Departamento
+                </div>
+            </div>
+        </div>
+        <!-- Contenedor info hisotoria -->
+        <div class="col-12 col-lg-12 mt-4 p-3 border rounded-3 shadow">
+            <div class="row">
+                <div class="col-12">
+                    <h3>🗄️ Historia Clínica</h3>
+                </div>
+                <div class="col-12"><b>ID: </b>@Model.porcino.HistoriaClinica.HistoriaID</div>
+                <div class="col-12"><b>Fecha de generación: </b>@Model.porcino.HistoriaClinica.FechaGeneracion</div>
+            </div>
+        </div>
+    </div>
+</div>
