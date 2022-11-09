@@ -11,15 +11,18 @@ namespace PorcinoRemoto.App.Dominio
         public DateTime FechaVisita { get; set; }
         public double Temperatura { get; set; }
         public double Peso { get; set; }
-        public string EstadoAnimo { get; set; }
+        public string? EstadoAnimo { get; set; }
         public double FrecuenciaRespiratoria { get; set; }
         public double FrecuenciaCardiaca { get; set; }
-        public string MedicamentosFormulados { get; set; }
+        public string? MedicamentosFormulados { get; set; }
         public int? PorcinoID { get; set; }
         public string? VeterinarioID { get; set; }
+        public int HistoriaID { get; set; }
         [ForeignKey("PorcinoID")]
         public virtual Porcino? Porcino { get; set; }
         [ForeignKey("VeterinarioID")]
         public virtual Veterinario? Veterinario { get; set; }
+        [ForeignKey("HistoriaID")]
+        public virtual HistoriaClinica HistoriaClinica { get; set; }
     }
 }

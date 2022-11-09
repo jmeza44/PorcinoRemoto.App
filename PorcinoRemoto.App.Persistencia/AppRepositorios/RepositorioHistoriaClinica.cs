@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PorcinoRemoto.App.Dominio;
+using Microsoft.EntityFrameworkCore;
 
 namespace PorcinoRemoto.App.Persistencia
 {
@@ -14,12 +15,16 @@ namespace PorcinoRemoto.App.Persistencia
 
         List<HistoriaClinica> IRepositorioHistoriaClinica.GetAllHistoriasClinicas()
         {
-            return _appContext.HistoriasClinicas.ToList();
+            return _appContext.HistoriasClinicas
+            .Include(p => p.Visitas)
+            .ToList();
         }
 
         HistoriaClinica IRepositorioHistoriaClinica.GetHistoriaClinica(int idHistoriaClinica)
         {
-            return _appContext.HistoriasClinicas.FirstOrDefault(p => p.HistoriaID == idHistoriaClinica);
+            return _appContext.HistoriasClinicas
+            .Include(p => p.Visitas)
+            .FirstOrDefault(p => p.HistoriaID == idHistoriaClinica);
         }
 
         HistoriaClinica IRepositorioHistoriaClinica.AddHistoriaClinica(HistoriaClinica historiaClinica)

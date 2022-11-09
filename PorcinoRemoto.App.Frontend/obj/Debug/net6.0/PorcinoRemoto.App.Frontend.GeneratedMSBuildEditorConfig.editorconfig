@@ -5,6 +5,7 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PorcinoRemoto.App.Frontend
 build_property.RootNamespace = PorcinoRemoto.App.Frontend
@@ -19,8 +20,24 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXENvbnN1bHRhcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Detalles/DetalleHistoriaClinica.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXERldGFsbGVzXERldGFsbGVIaXN0b3JpYUNsaW5pY2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Detalles/DetallePorcino.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXERldGFsbGVzXERldGFsbGVQb3JjaW5vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Detalles/DetallePropietario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXERldGFsbGVzXERldGFsbGVQcm9waWV0YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Edits/EditPorcino.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXEVkaXRzXEVkaXRQb3JjaW5vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Edits/EditPropietario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXEVkaXRzXEVkaXRQcm9waWV0YXJpby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Forms/RegistroPorcino.cshtml]
@@ -29,6 +46,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Forms/RegistroVeterinario.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXEZvcm1zXFJlZ2lzdHJvVmV0ZXJpbmFyaW8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Custom/Forms/RegistroVisita.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3VzdG9tXEZvcm1zXFJlZ2lzdHJvVmlzaXRhLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/David/Documents/DotNetProyects/PorcinoRemoto/PorcinoRemoto.App/PorcinoRemoto.App.Frontend/Pages/Error.cshtml]

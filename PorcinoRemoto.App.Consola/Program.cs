@@ -10,7 +10,7 @@ namespace PorcinoRemoto.App.Consola
         private static IRepositorioPorcino _repoPorcino = new RepositorioPorcino(new Persistencia.AppContext());
         public static void Main(string[] args)
         {
-            Porcino porcinoEncontrado = BuscarPorcino(1);
+            Porcino porcinoEncontrado = BuscarPorcino(7);
             if (porcinoEncontrado != null)
             {
                 Console.Write(

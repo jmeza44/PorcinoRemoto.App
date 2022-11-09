@@ -3,6 +3,7 @@ using PorcinoRemoto.App.Dominio;
 using PorcinoRemoto.App.Persistencia;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 
 namespace PorcinoRemoto.App.Frontend.Pages;
 
@@ -13,8 +14,6 @@ public class RegistroPorModel : PageModel
     public Porcino porcinoPost { get; set; }
     [BindProperty]
     public Propietario propietarioPost { get; set; }
-    [BindProperty]
-    public HistoriaClinica historiaClinicaPost { get; set; }
     public IRepositorioPorcino _repoPorcino;
 
     public RegistroPorModel(ILogger<RegistroPorModel> logger)
@@ -30,10 +29,9 @@ public class RegistroPorModel : PageModel
 
     public void Onpost()
     {
-        historiaClinicaPost.FechaGeneracion = DateTime.Now;
         verificarSegundosNomApe();
         porcinoPost.Propietario = propietarioPost;
-        porcinoPost.HistoriaClinica = historiaClinicaPost;
+        porcinoPost.HistoriaClinica = new HistoriaClinica() { FechaGeneracion = DateTime.Now };
         _repoPorcino.AddPorcino(porcinoPost);
     }
 

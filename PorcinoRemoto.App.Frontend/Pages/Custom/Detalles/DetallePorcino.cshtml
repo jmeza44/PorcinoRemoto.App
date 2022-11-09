@@ -5,8 +5,17 @@
     <div class="row">
         <!-- Contenedor "Header" -->
         <div class="col-12">
-            <a class="btn btn-outline-secondary" asp-page="/Custom/Consultas">🔙 Volver</a>
+            <a class="btn btn-outline-secondary" asp-page="/Custom/Consultas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+                Consultas
+            </a>
         </div>
+        @if(@Model.porcino != null)
+        {
         <!-- Contenedor info porcino -->
         <div class="col-12 col-lg-5 mt-4 p-3 border rounded-3 shadow">
             <div class="row">
@@ -17,6 +26,36 @@
                 <div class="col-6"><b>Color: </b>@Model.porcino.Color</div>
                 <div class="col-6"><b>Especie: </b>@Model.porcino.Especie</div>
                 <div class="col-6"><b>Raza: </b>@Model.porcino.Raza</div>
+                <div class="col-12 mt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <a class="btn btn-warning" asp-page="/Custom/Edits/EditPorcino"
+                                asp-route-idPorcino="@Model.porcino.PorcinoID">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                                Editar
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <form method="post">
+                                <input type="hidden" asp-for="porcino.PorcinoID">
+                                <button class="btn btn-danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash3" viewBox="0 0 16 16">
+                                        <path
+                                            d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                                    </svg>
+                                    Eliminar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Contenedor info propietario -->
@@ -49,7 +88,53 @@
                 </div>
                 <div class="col-12"><b>ID: </b>@Model.porcino.HistoriaClinica.HistoriaID</div>
                 <div class="col-12"><b>Fecha de generación: </b>@Model.porcino.HistoriaClinica.FechaGeneracion</div>
+                <div class="col-12 mt-3">
+                    <h3>📋 Visitas</h3>
+                </div>
+                <div class="col-12">
+                    @if(Model.porcino.HistoriaClinica.Visitas.Count() > 0)
+                    {
+                        int i = 1;
+                        foreach(var visita in Model.porcino.HistoriaClinica.Visitas) {
+                        <div class="row mb-3 border rounded-3">
+                            <h5>@i.</h5>
+                            <div class="col-6"><b>Fecha de visita: </b>@visita.FechaVisita</div>
+                            <div class="col-6"><b>Temperatura: </b>@visita.Temperatura</div>
+                            <div class="col-6"><b>Peso: </b>@visita.Peso</div>
+                            <div class="col-6"><b>Estado de animo: </b>@visita.EstadoAnimo</div>
+                            <div class="col-6"><b>Frecuencia respiratoria: </b>@visita.FrecuenciaRespiratoria</div>
+                            <div class="col-6"><b>Frecuencia cardíaca: </b>@visita.FrecuenciaCardiaca</div>
+                            <div class="col-6"><b>Medicamentos formulados: </b>@visita.MedicamentosFormulados</div>
+                            <div class="col-6"><b>Veterinario encargado: </b>@visita.VeterinarioID</div>
+                        </div>
+                        i++;
+                        }
+                    } else {
+                    <div class="col-12 mt-3 alert alert-secondary" role="alert">
+                        No hay resultados
+                    </div>
+                    }
+                </div>
+                <div class="col-12 mt-2">
+                    <a class="btn btn-success" asp-page="/Custom/Forms/RegistroVisita"
+                        asp-route-idPorcino="@Model.porcino.PorcinoID">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                            <path
+                                d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+                            <path
+                                d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+                        </svg>
+                        Agregar una visita
+                    </a>
+                </div>
             </div>
         </div>
+        } else
+        {
+        <div class="col-12 mt-3 alert alert-danger" role="alert">
+            Porcino no encontrado.
+        </div>
+        }
     </div>
 </div>

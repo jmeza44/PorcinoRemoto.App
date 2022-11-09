@@ -33,9 +33,24 @@ namespace PorcinoRemoto.App.Persistencia
 
         Visita IRepositorioVisita.AddVisita(Visita visita)
         {
-            var visitaAdicionada = _appContext.Visitas.Add(visita);
-            _appContext.SaveChanges();
-            return visitaAdicionada.Entity;
+            Veterinario veterinario = _appContext.Veterinarios
+            .Include(p => p.Persona.Direccion)
+            .Include(p => p.Visitas)
+            .FirstOrDefault(p => p.Persona.PersonaID == visita.VeterinarioID);
+            Porcino porcino = _appContext.Porcinos
+            .Include(p => p.Propietario.Persona.Direccion)
+            .Include(p => p.Visitas)
+            .Include(p => p.HistoriaClinica.Visitas)
+            .FirstOrDefault(p => p.PorcinoID == visita.PorcinoID);
+            if (veterinario != null && porcino != null)
+            {
+                veterinario.Visitas.Add(visita);
+                porcino.Visitas.Add(visita);
+                porcino.HistoriaClinica.Visitas.Add(visita);
+                _appContext.SaveChanges();
+                return visita;
+            }
+            return null;
         }
 
         Visita IRepositorioVisita.UpdateVisita(Visita visita)

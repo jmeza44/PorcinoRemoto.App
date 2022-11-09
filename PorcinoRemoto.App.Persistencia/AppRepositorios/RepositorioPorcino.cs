@@ -17,7 +17,7 @@ namespace PorcinoRemoto.App.Persistencia
         {
             return _appContext.Porcinos
             .Include(p => p.Propietario.Persona.Direccion)
-            .Include(p => p.HistoriaClinica)
+            .Include(p => p.HistoriaClinica.Visitas)
             .ToList();
         }
 
@@ -25,7 +25,7 @@ namespace PorcinoRemoto.App.Persistencia
         {
             return _appContext.Porcinos
             .Include(p => p.Propietario.Persona.Direccion)
-            .Include(p => p.HistoriaClinica)
+            .Include(p => p.HistoriaClinica.Visitas)
             .FirstOrDefault(p => p.PorcinoID == idPorcino);
         }
 
@@ -38,28 +38,24 @@ namespace PorcinoRemoto.App.Persistencia
             if (propietario != null)
             {
                 propietario.Porcinos.Add(porcino);
+                _appContext.SaveChanges();
                 return porcino;
             }
-            else
-            {
-                var porcinoAdicionado = _appContext.Porcinos.Add(porcino);
-                return porcinoAdicionado.Entity;
-            }
-
+            var porcinoAdicionado = _appContext.Porcinos.Add(porcino);
             _appContext.SaveChanges();
+            return porcinoAdicionado.Entity;
         }
 
         Porcino IRepositorioPorcino.UpdatePorcino(Porcino porcino)
         {
-            var porcinoEncontrado = _appContext.Porcinos.FirstOrDefault(p => p.PorcinoID == porcino.PorcinoID);
+            var porcinoEncontrado = _appContext.Porcinos
+            .FirstOrDefault(p => p.PorcinoID == porcino.PorcinoID);
             if (porcinoEncontrado != null)
             {
                 porcinoEncontrado.Nombre = porcino.Nombre;
                 porcinoEncontrado.Color = porcino.Color;
                 porcinoEncontrado.Especie = porcino.Especie;
                 porcinoEncontrado.Raza = porcino.Raza;
-                porcinoEncontrado.Propietario = porcino.Propietario;
-                porcinoEncontrado.HistoriaClinica = porcino.HistoriaClinica;
 
                 _appContext.SaveChanges();
             }
@@ -68,13 +64,15 @@ namespace PorcinoRemoto.App.Persistencia
 
         void IRepositorioPorcino.DeletePorcino(int idPorcino)
         {
-            var porcinoEncontrado = _appContext.Porcinos.FirstOrDefault(p => p.PorcinoID == idPorcino);
-            if (porcinoEncontrado == null)
-                return;
-            _appContext.Porcinos.Remove(porcinoEncontrado);
-            _appContext.SaveChanges();
-
+            var porcinoEncontrado = _appContext.Porcinos
+            .Include(p => p.Propietario.Persona.Direccion)
+            .Include(p => p.HistoriaClinica.Visitas)
+            .FirstOrDefault(p => p.PorcinoID == idPorcino);
+            if (porcinoEncontrado != null)
+            {
+                _appContext.Porcinos.Remove(porcinoEncontrado);
+                _appContext.SaveChanges();
+            }
         }
-
     }
 }

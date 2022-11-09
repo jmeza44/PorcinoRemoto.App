@@ -10,7 +10,8 @@ namespace PorcinoRemoto.App.Frontend.Pages;
 public class DetallePorcinoModel : PageModel
 {
     private readonly ILogger<DetallePorcinoModel> _logger;
-    public Porcino porcino;
+    [BindProperty]
+    public Porcino porcino { get; set; }
     public readonly IRepositorioPorcino _repoPorcino;
 
     public DetallePorcinoModel(ILogger<DetallePorcinoModel> logger)
@@ -21,11 +22,21 @@ public class DetallePorcinoModel : PageModel
 
     public IActionResult OnGet(int idPorcino)
     {
-        if (idPorcino == null) {
+        if (idPorcino == null || idPorcino == 0)
+        {
             return RedirectToPage("/Error");
         }
         porcino = _repoPorcino.GetPorcino(idPorcino);
         return Page();
     }
 
+    public IActionResult OnPost()
+    {
+        if (porcino != null)
+        {
+            _repoPorcino.DeletePorcino(porcino.PorcinoID);
+            return RedirectToPage("/Custom/Consultas");
+        }
+        return Page();
+    }
 }

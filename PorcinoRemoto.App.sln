@@ -1,14 +1,49 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PorcinoRemoto.App.Dominio", "PorcinoRemoto.App.Dominio\PorcinoRemoto.App.Dominio.csproj", "{BE66F44A-4F94-49B2-B565-D1453023CB82}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PorcinoRemoto.App.Persistencia", "PorcinoRemoto.App.Persistencia\PorcinoRemoto.App.Persistencia.csproj", "{D8D848E8-899C-44D1-9590-CDE06B661F0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PorcinoRemoto.App.Servicios", "PorcinoRemoto.App.Servicios\PorcinoRemoto.App.Servicios.csproj", "{1FEDE42E-561E-4BB4-A04D-CDBC21D677C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PorcinoRemoto.App.Consola", "PorcinoRemoto.App.Consola\PorcinoRemoto.App.Consola.csproj", "{487FB3B4-E8EB-492D-9AD1-29E7B2861E57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PorcinoRemoto.App.Frontend", "PorcinoRemoto.App.Frontend\PorcinoRemoto.App.Frontend.csproj", "{DB40297A-D061-46DE-ACEA-A78C2333A6C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE66F44A-4F94-49B2-B565-D1453023CB82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE66F44A-4F94-49B2-B565-D1453023CB82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE66F44A-4F94-49B2-B565-D1453023CB82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE66F44A-4F94-49B2-B565-D1453023CB82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D848E8-899C-44D1-9590-CDE06B661F0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D848E8-899C-44D1-9590-CDE06B661F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D848E8-899C-44D1-9590-CDE06B661F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D848E8-899C-44D1-9590-CDE06B661F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FEDE42E-561E-4BB4-A04D-CDBC21D677C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FEDE42E-561E-4BB4-A04D-CDBC21D677C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FEDE42E-561E-4BB4-A04D-CDBC21D677C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FEDE42E-561E-4BB4-A04D-CDBC21D677C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487FB3B4-E8EB-492D-9AD1-29E7B2861E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487FB3B4-E8EB-492D-9AD1-29E7B2861E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487FB3B4-E8EB-492D-9AD1-29E7B2861E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487FB3B4-E8EB-492D-9AD1-29E7B2861E57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB40297A-D061-46DE-ACEA-A78C2333A6C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB40297A-D061-46DE-ACEA-A78C2333A6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB40297A-D061-46DE-ACEA-A78C2333A6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB40297A-D061-46DE-ACEA-A78C2333A6C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {899F7FFA-AD0B-4BA8-BB79-32D3295072D5}
 	EndGlobalSection
 EndGlobal

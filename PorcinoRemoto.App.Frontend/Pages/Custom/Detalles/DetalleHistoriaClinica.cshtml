@@ -1,0 +1,46 @@
+@page
+@model DetalleHistoriaClinicaModel
+@{ ViewData["Title"] = "Detalle Historia Clinica"; }
+<div class="container">
+    <div class="row">
+        <!-- Contenedor info historia clinica -->
+        <div class="col-12 p-3 border rounded-3 shadow">
+            <div class="row">
+                <div class="col-12">
+                    <h3>🗃️ Historia Clínica</h3>
+                </div>
+                <div class="col-12"><b>Fecha generación: </b>@Model.historia.FechaGeneracion</div>
+            </div>
+        </div>
+        <div class="col-12">
+            <!-- Contenedor info visitas -->
+            <div class="row mt-3 mt-4 p-3 border rounded-3 shadow">
+                <div class="col-12">
+                    <h3>📋 Visitas</h3>
+                </div>
+                @if(Model.historia.Visitas.Count() > 0)
+                {
+                foreach(var visita in Model.historia.Visitas) {
+                <!-- Contenedor visita -->
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6"><b>Fecha de visita: </b>@visita.FechaVisita</div>
+                        <div class="col-6"><b>Temperatura: </b>temperatura</div>
+                        <div class="col-6"><b>Peso: </b>peso</div>
+                        <div class="col-6"><b>Estado de animo: </b>estado de animo</div>
+                        <div class="col-6"><b>Frecuencia respiratoria: </b>frecuencia respiratoria</div>
+                        <div class="col-6"><b>Frecuencia cardíaca: </b>frecuencia cardiaca</div>
+                        <div class="col-6"><b>Medicamentos formulados: </b>medicamentos formulados</div>
+                        <div class="col-6"><b>Veterinario encargado: </b>veterinario encargado</div>
+                    </div>
+                </div>
+                }
+                } else {
+                <div class="col-12 mt-3 alert alert-secondary" role="alert">
+                    No hay resultados
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

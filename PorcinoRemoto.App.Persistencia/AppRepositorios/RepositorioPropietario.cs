@@ -24,6 +24,7 @@ namespace PorcinoRemoto.App.Persistencia
         {
             return _appContext.Propietarios
             .Include(p => p.Persona.Direccion)
+            .Include(p => p.Porcinos)
             .FirstOrDefault(p => p.Persona.PersonaID == idPersona);
         }
 
@@ -36,7 +37,10 @@ namespace PorcinoRemoto.App.Persistencia
 
         Propietario IRepositorioPropietario.UpdatePropietario(Propietario propietario)
         {
-            var propietarioEncontrado = _appContext.Propietarios.FirstOrDefault(p => p.Persona.PersonaID == propietario.Persona.PersonaID);
+            var propietarioEncontrado = _appContext.Propietarios
+            .Include(p => p.Persona.Direccion)
+            .Include(p => p.Porcinos)
+            .FirstOrDefault(p => p.PersonaID == propietario.PersonaID);
             if (propietarioEncontrado != null)
             {
                 propietarioEncontrado.Persona.PrimerNombre = propietario.Persona.PrimerNombre;
@@ -53,13 +57,18 @@ namespace PorcinoRemoto.App.Persistencia
 
         void IRepositorioPropietario.DeletePropietario(string idPersona)
         {
-            var propietarioEncontrado = _appContext.Propietarios.FirstOrDefault(p => p.Persona.PersonaID == idPersona);
-            if (propietarioEncontrado == null)
-                return;
-            _appContext.Propietarios.Remove(propietarioEncontrado);
-            _appContext.SaveChanges();
-
+            var propietarioEncontrado = _appContext.Propietarios
+            .Include(p => p.Persona.Direccion)
+            .Include(p => p.Porcinos)
+            .FirstOrDefault(p => p.Persona.PersonaID == idPersona);
+            if (propietarioEncontrado != null)
+            {
+                // Eliminando la dirección se elimina la persona asociada y el propietario asociado
+                var direccion = _appContext.Direcciones
+                .FirstOrDefault(p => p.DireccionID == propietarioEncontrado.Persona.Direccion.DireccionID);
+                _appContext.Direcciones.Remove(direccion);
+                _appContext.SaveChanges();
+            }
         }
-
     }
 }

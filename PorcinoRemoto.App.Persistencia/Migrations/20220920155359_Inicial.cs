@@ -107,8 +107,8 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Especie = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Raza = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PropietarioID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    HistoriaID = table.Column<int>(type: "int", nullable: false)
+                    PropietarioID = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    HistoriaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -117,13 +117,13 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                         name: "FK_Porcinos_HistoriasClinicas_HistoriaID",
                         column: x => x.HistoriaID,
                         principalTable: "HistoriasClinicas",
-                        principalColumn: "HistoriaID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "HistoriaID");
                     table.ForeignKey(
                         name: "FK_Porcinos_Propietarios_PropietarioID",
                         column: x => x.PropietarioID,
                         principalTable: "Propietarios",
-                        principalColumn: "PersonaID");
+                        principalColumn: "PersonaID",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -141,16 +141,17 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                     MedicamentosFormulados = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PorcinoID = table.Column<int>(type: "int", nullable: true),
                     VeterinarioID = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    HistoriaClinicaHistoriaID = table.Column<int>(type: "int", nullable: true)
+                    HistoriaID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Visitas", x => x.VisitaID);
                     table.ForeignKey(
-                        name: "FK_Visitas_HistoriasClinicas_HistoriaClinicaHistoriaID",
-                        column: x => x.HistoriaClinicaHistoriaID,
+                        name: "FK_Visitas_HistoriasClinicas_HistoriaID",
+                        column: x => x.HistoriaID,
                         principalTable: "HistoriasClinicas",
-                        principalColumn: "HistoriaID");
+                        principalColumn: "HistoriaID",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Visitas_Porcinos_PorcinoID",
                         column: x => x.PorcinoID,
@@ -179,9 +180,9 @@ namespace PorcinoRemoto.App.Persistencia.Migrations
                 column: "PropietarioID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Visitas_HistoriaClinicaHistoriaID",
+                name: "IX_Visitas_HistoriaID",
                 table: "Visitas",
-                column: "HistoriaClinicaHistoriaID");
+                column: "HistoriaID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Visitas_PorcinoID",

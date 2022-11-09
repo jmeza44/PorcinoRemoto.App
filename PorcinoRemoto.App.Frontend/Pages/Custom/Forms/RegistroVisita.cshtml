@@ -1,0 +1,84 @@
+@page
+@model RegistroVisitaModel
+@{ ViewData["Title"] = "Registro Visita"; }
+<!-- Registro visitas container -->
+<div class="container-lg py-3 shadow-lg rounded-3 border">
+    <form method="post" class="row">
+        <input type="hidden" asp-for="visita.VisitaID">
+        <input type="hidden" asp-for="visita.FechaVisita">
+        <input type="hidden" asp-for="visita.PorcinoID">
+        <h3 class="col-12 text-nowrap">Registra una visita 📋</h3>
+        <div class="col-12">
+            <h5 class="text-secondary">Porcino ID: @Model.visita.PorcinoID</h5>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.Temperatura">Temperatura</label>
+            <div class="input-group">
+                <input type="text" asp-for="visita.Temperatura" class="form-control" placeholder="20.0"
+                    aria-label="Temperatura" aria-describedby="temperatura-addon">
+                <span class="input-group-text" id="temperatura-addon">°C</span>
+            </div>
+            <span asp-validation-for="visita.Temperatura" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.Peso">Peso</label>
+            <div class="input-group">
+                <input type="text" asp-for="visita.Peso" class="form-control" placeholder="0.0" aria-label="Peso"
+                    aria-describedby="peso-addon">
+                <span class="input-group-text" id="peso-addon">kg</span>
+            </div>
+            <span asp-validation-for="visita.Peso" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.EstadoAnimo">Estado de ánimo</label>
+            <input type="text" asp-for="visita.EstadoAnimo" class="form-control" placeholder="Feliz">
+            <span asp-validation-for="visita.EstadoAnimo" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.FrecuenciaRespiratoria">Frecuencia respiratoria</label>
+            <div class="input-group">
+                <input type="text" asp-for="visita.FrecuenciaRespiratoria" class="form-control" placeholder="5"
+                    aria-label="Frecuencia respiratoria" aria-describedby="frecuencia-respiratoria-addon">
+                <span class="input-group-text text-truncate" id="frecuencia-respiratoria-addon">respiraciones/min</span>
+            </div>
+            <span asp-validation-for="visita.FrecuenciaRespiratoria" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.FrecuenciaCardiaca">Frecuencia cardíaca</label>
+            <div class="input-group">
+                <input type="text" asp-for="visita.FrecuenciaCardiaca" class="form-control" placeholder="10"
+                    aria-label="Frecuencia cardiaca" aria-describedby="frecuencia-cardiaca-addon">
+                <span class="input-group-text" id="frecuencia-cardiaca-addon">latidos/min</span>
+            </div>
+            <span asp-validation-for="visita.FrecuenciaCardiaca" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 form-group mb-2">
+            <label asp-for="visita.VeterinarioID">Veterinario</label>
+            <input asp-for="visita.VeterinarioID" class="form-control" list="veterinariosOptions"
+                placeholder="Identificación...">
+            <datalist id="veterinariosOptions">
+                @foreach(var veterinario in Model.veterinarios) {
+                <option value="@veterinario.Persona.PersonaID"></option>
+                }
+            </datalist>
+            <span asp-validation-for="visita.VeterinarioID" class="text-danger"></span>
+        </div>
+        <div class="col-6 col-md-6 col-lg-6 col-xl-4 form-group mb-2">
+            <label asp-for="visita.MedicamentosFormulados">Medicamentos formulados</label>
+            <textarea asp-for="visita.MedicamentosFormulados" class="form-control" style="resize: none;"></textarea>
+            <span asp-validation-for="visita.MedicamentosFormulados" class="text-danger"></span>
+        </div>
+        <div class="col-12 mt-1">
+            <button type="submit" class="btn btn-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                    <path
+                        d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+                    <path
+                        d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+                </svg>
+                Agregar visita
+            </button>
+        </div>
+    </form>
+</div>
